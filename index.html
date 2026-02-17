@@ -4,17 +4,26 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="dark light" />
-        <title>Дмитрий Алешин — Frontend-интерфейсы с вниманием к деталям</title>
+
+        <title>Дмитрий Алешин — Senior Frontend • интерфейсы и детали</title>
         <meta
             name="description"
             content="Персональная визитка Дмитрия Алешина — Senior Frontend разработчик. React, Vue, Nuxt, TypeScript. Контакты: Telegram и LinkedIn."
         />
+
         <meta property="og:title" content="Дмитрий Алешин — Senior Frontend разработчик" />
-        <meta
-            property="og:description"
-            content="Современные интерфейсы: React, Vue, Nuxt, TypeScript. Связаться: Telegram / LinkedIn."
-        />
+        <meta property="og:description" content="React, Vue, Nuxt, TypeScript. Связаться: Telegram и LinkedIn." />
         <meta property="og:type" content="website" />
+
+        <link
+            rel="icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='30%25' cy='28%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.95'/%3E%3Cstop offset='18%25' stop-color='%23ffd1fb' stop-opacity='.75'/%3E%3Cstop offset='45%25' stop-color='%23ff4fd8' stop-opacity='.95'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6' stop-opacity='1'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='70%25' cy='78%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2336d7ff' stop-opacity='.55'/%3E%3Cstop offset='70%25' stop-color='%2336d7ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ring' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.55'/%3E%3Cstop offset='40%25' stop-color='%23ffffff' stop-opacity='.15'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='.18'/%3E%3C/linearGradient%3E%3Cfilter id='soft' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='64' height='64' fill='none'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g1)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g2)'/%3E%3Ccircle cx='26' cy='22' r='7' fill='%23ffffff' opacity='.35' filter='url(%23soft)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23ring)' stroke-width='2'/%3E%3C/svg%3E"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='30%25' cy='28%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.95'/%3E%3Cstop offset='18%25' stop-color='%23ffd1fb' stop-opacity='.75'/%3E%3Cstop offset='45%25' stop-color='%23ff4fd8' stop-opacity='.95'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6' stop-opacity='1'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='70%25' cy='78%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2336d7ff' stop-opacity='.55'/%3E%3Cstop offset='70%25' stop-color='%2336d7ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ring' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.55'/%3E%3Cstop offset='40%25' stop-color='%23ffffff' stop-opacity='.15'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='.18'/%3E%3C/linearGradient%3E%3Cfilter id='soft' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='64' height='64' fill='none'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g1)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g2)'/%3E%3Ccircle cx='26' cy='22' r='7' fill='%23ffffff' opacity='.35' filter='url(%23soft)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23ring)' stroke-width='2'/%3E%3C/svg%3E"
+        />
+
         <style>
             :root {
                 --font:
@@ -22,12 +31,10 @@
                     "Apple Color Emoji", "Segoe UI Emoji";
                 --radius: 22px;
 
-                /* Accent */
                 --violet: #8b5cf6;
                 --pink: #ff4fd8;
                 --cyan: #36d7ff;
 
-                /* Base (default: dark) */
                 --bg0: #070813;
                 --bg1: #0b0d1b;
                 --text: rgba(255, 255, 255, 0.92);
@@ -45,7 +52,6 @@
                 --contentMax: 860px;
             }
 
-            /* Light theme overrides */
             html[data-theme="light"] {
                 --bg0: #f6f6ff;
                 --bg1: #ffffff;
@@ -68,6 +74,7 @@
             body {
                 height: 100%;
             }
+
             body {
                 margin: 0;
                 font-family: var(--font);
@@ -80,7 +87,6 @@
                 overflow-x: hidden;
             }
 
-            /* Canvas background */
             canvas#bg {
                 position: fixed;
                 inset: 0;
@@ -91,14 +97,13 @@
                 display: block;
             }
 
-            /* Layout */
             .page {
                 min-height: 100svh;
                 display: grid;
                 place-items: center;
                 padding: clamp(20px, 4vw, 48px);
                 position: relative;
-                z-index: 2;
+                z-index: 1;
             }
 
             .card-wrap {
@@ -111,32 +116,45 @@
                 position: relative;
                 border-radius: var(--radius);
                 padding: clamp(22px, 3.2vw, 34px);
-                border: 1px solid var(--hairline);
-                box-shadow: var(--shadow), var(--glow);
-                background: var(--cardFallback);
-                transition:
-                    transform 180ms ease,
-                    box-shadow 220ms ease,
-                    border-color 220ms ease;
-                transform-style: preserve-3d;
-                will-change: transform;
+                background: transparent;
+                border: 1px solid transparent;
+                box-shadow: none;
                 overflow: hidden;
             }
 
-            /* Glass if supported */
+            .card__inner {
+                position: relative;
+                z-index: 2;
+            }
+
+            .card__fx {
+                position: absolute;
+                inset: 0;
+                border-radius: var(--radius);
+                z-index: 1;
+                pointer-events: none;
+                will-change: transform;
+                border: 1px solid var(--hairline);
+                box-shadow: var(--shadow), var(--glow);
+                background: var(--cardFallback);
+                transform-style: preserve-3d;
+                transform-origin: 50% 50%;
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
             @supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
-                .card {
+                .card__fx {
                     background: var(--card);
                     backdrop-filter: blur(14px) saturate(1.15);
                     -webkit-backdrop-filter: blur(14px) saturate(1.15);
                 }
             }
 
-            /* Subtle shine overlay */
-            .card::before {
+            .card__fx::before {
                 content: "";
                 position: absolute;
                 inset: -2px;
+                border-radius: var(--radius);
                 background: radial-gradient(
                     600px 220px at var(--shine-x, 35%) var(--shine-y, 25%),
                     rgba(255, 255, 255, 0.15),
@@ -148,28 +166,29 @@
                 mix-blend-mode: screen;
                 transition: opacity 220ms ease;
             }
-            html[data-theme="light"] .card::before {
+
+            html[data-theme="light"] .card__fx::before {
                 mix-blend-mode: overlay;
                 opacity: 0.45;
             }
 
-            .card::after {
+            .card__fx::after {
                 content: "";
                 position: absolute;
                 inset: 0;
                 border-radius: var(--radius);
+                pointer-events: none;
                 background: linear-gradient(
                     135deg,
                     rgba(139, 92, 246, 0.28),
                     rgba(255, 79, 216, 0.16),
                     rgba(54, 215, 255, 0.1)
                 );
-                pointer-events: none;
                 opacity: 0.1;
                 mask: linear-gradient(#000, transparent 70%);
             }
 
-            .card:hover {
+            .card:hover .card__fx {
                 border-color: color-mix(in srgb, var(--hairline), rgba(255, 79, 216, 0.3) 35%);
                 box-shadow:
                     var(--shadow),
@@ -192,6 +211,7 @@
                 letter-spacing: -0.02em;
                 line-height: 1.06;
             }
+
             .hero .role {
                 margin-top: 10px;
                 font-size: clamp(14px, 1.6vw, 18px);
@@ -225,10 +245,12 @@
                 position: relative;
                 overflow: hidden;
             }
+
             html[data-theme="light"] .icon-btn {
                 background: rgba(0, 0, 0, 0.03);
                 box-shadow: 0 10px 24px rgba(17, 8, 42, 0.1);
             }
+
             .icon-btn::before {
                 content: "";
                 position: absolute;
@@ -239,7 +261,9 @@
                 opacity: 0.22;
                 transform: translateZ(0);
                 transition: opacity 220ms ease;
+                pointer-events: none;
             }
+
             .icon-btn:hover {
                 transform: translateY(-1px);
                 border-color: color-mix(in srgb, var(--hairline), rgba(54, 215, 255, 0.45) 40%);
@@ -248,16 +272,17 @@
                     0 0 0 1px rgba(255, 255, 255, 0.06);
                 background: rgba(255, 255, 255, 0.07);
             }
+
             html[data-theme="light"] .icon-btn:hover {
                 background: rgba(0, 0, 0, 0.04);
                 box-shadow:
                     0 16px 38px rgba(17, 8, 42, 0.14),
                     0 0 0 1px rgba(0, 0, 0, 0.04);
             }
+
             .icon-btn:hover::before {
                 opacity: 0.34;
             }
-
             .icon-btn:active {
                 transform: translateY(0px) scale(0.98);
             }
@@ -271,9 +296,9 @@
                 width: 22px;
                 height: 22px;
                 display: block;
-                transform: translateZ(30px);
                 opacity: 0.95;
             }
+
             .icon path,
             .icon circle {
                 fill: none;
@@ -294,6 +319,7 @@
                 line-height: 1.65;
                 max-width: 70ch;
             }
+
             .about strong {
                 font-weight: 650;
                 color: color-mix(in srgb, var(--text), rgba(255, 79, 216, 0.35) 22%);
@@ -336,7 +362,6 @@
                 border: 1px solid rgba(255, 255, 255, 0.18);
             }
 
-            /* Responsive */
             @media (max-width: 520px) {
                 header {
                     grid-template-columns: 1fr;
@@ -346,14 +371,10 @@
                 }
             }
 
-            /* Reduced motion */
             @media (prefers-reduced-motion: reduce) {
-                .card,
+                .card__fx,
                 .icon-btn {
                     transition: none;
-                }
-                .card:hover {
-                    transform: none;
                 }
             }
         </style>
@@ -363,69 +384,71 @@
         <canvas id="bg" aria-hidden="true"></canvas>
 
         <div class="page">
-            <div class="card-wrap">
+            <div class="card-wrap" id="wrap">
                 <section class="card" id="card" aria-label="Персональная визитка">
-                    <header>
-                        <div class="hero">
-                            <h1>Дмитрий Алешин</h1>
-                            <div class="role">Senior Frontend разработчик</div>
-                        </div>
+                    <div class="card__fx" id="cardFx" aria-hidden="true"></div>
 
-                        <nav class="contacts" aria-label="Контакты">
-                            <a
-                                class="icon-btn"
-                                href="https://t.me/dim0oo0n"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Написать в Telegram"
-                                title="Telegram"
-                            >
-                                <!-- Telegram icon (inline SVG) -->
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M21.8 4.6L3.4 11.7c-.9.35-.86 1.63.07 1.92l4.7 1.47 1.8 5.6c.28.86 1.38.99 1.84.22l2.6-4.3 4.9 3.6c.67.49 1.62.12 1.79-.7l2.9-13.6c.2-.9-.66-1.62-1.2-1.38Z"
-                                    />
-                                    <path d="M8.1 15.1l12.8-9.2" />
-                                    <path d="M8.1 15.1l5.1 4.1" />
-                                </svg>
-                            </a>
+                    <div class="card__inner">
+                        <header>
+                            <div class="hero">
+                                <h1>Дмитрий Алешин</h1>
+                                <div class="role">Senior Frontend разработчик</div>
+                            </div>
 
-                            <a
-                                class="icon-btn"
-                                href="https://www.linkedin.com/in/dmitriy-aleshin-54b2393a9/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Открыть LinkedIn"
-                                title="LinkedIn"
-                            >
-                                <!-- LinkedIn icon (inline SVG) -->
-                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M6.4 10.2v10.3" />
-                                    <path d="M6.4 6.2v.2" />
-                                    <path d="M10.2 20.5V10.2" />
-                                    <path d="M10.2 13.8c.7-2.5 2.4-3.7 4.6-3.7 2.7 0 4.4 1.8 4.4 5.2v5.2" />
-                                    <path d="M19.2 20.5v-6.2" />
-                                </svg>
-                            </a>
-                        </nav>
-                    </header>
+                            <nav class="contacts" aria-label="Контакты">
+                                <a
+                                    class="icon-btn"
+                                    href="https://t.me/dim0oo0n"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Написать в Telegram"
+                                    title="Telegram"
+                                >
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path
+                                            d="M21.8 4.6L3.4 11.7c-.9.35-.86 1.63.07 1.92l4.7 1.47 1.8 5.6c.28.86 1.38.99 1.84.22l2.6-4.3 4.9 3.6c.67.49 1.62.12 1.79-.7l2.9-13.6c.2-.9-.66-1.62-1.2-1.38Z"
+                                        />
+                                        <path d="M8.1 15.1l12.8-9.2" />
+                                        <path d="M8.1 15.1l5.1 4.1" />
+                                    </svg>
+                                </a>
 
-                    <main>
-                        <p class="about">
-                            Делаю интерфейсы, которые ощущаются быстрыми и аккуратными — от компонентов до целых
-                            продуктов. В работе опираюсь на <strong>React</strong> и <strong>Vue</strong>, люблю чистую
-                            типизацию в <strong>TypeScript</strong>. Ценю предсказуемость, доступность и детали:
-                            анимации — мягкие, UX — честный, код — поддерживаемый.
-                        </p>
-                    </main>
+                                <a
+                                    class="icon-btn"
+                                    href="https://www.linkedin.com/in/dmitriy-aleshin-54b2393a9/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Открыть LinkedIn"
+                                    title="LinkedIn"
+                                >
+                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M6.4 10.2v10.3" />
+                                        <path d="M6.4 6.2v.2" />
+                                        <path d="M10.2 20.5V10.2" />
+                                        <path d="M10.2 13.8c.7-2.5 2.4-3.7 4.6-3.7 2.7 0 4.4 1.8 4.4 5.2v5.2" />
+                                        <path d="M19.2 20.5v-6.2" />
+                                    </svg>
+                                </a>
+                            </nav>
+                        </header>
 
-                    <footer>
-                        <div class="fine">
-                            <span class="dot" aria-hidden="true"></span>
-                            <span id="year"></span>
-                        </div>
-                        <div>Дмитрий Алешин</div>
-                    </footer>
+                        <main>
+                            <p class="about">
+                                Делаю интерфейсы, которые ощущаются быстрыми и аккуратными — от компонентов до целых
+                                продуктов. В работе опираюсь на <strong>React</strong> и <strong>Vue</strong>, люблю
+                                чистую типизацию в <strong>TypeScript</strong>. Ценю предсказуемость, доступность и
+                                детали: анимации — мягкие, UX — честный, код — поддерживаемый.
+                            </p>
+                        </main>
+
+                        <footer>
+                            <div class="fine">
+                                <span class="dot" aria-hidden="true"></span>
+                                <span id="year"></span>
+                            </div>
+                            <div>Дмитрий Алешин</div>
+                        </footer>
+                    </div>
                 </section>
             </div>
         </div>
@@ -434,33 +457,27 @@
             (function () {
                 const root = document.documentElement;
 
-                // Theme: follow prefers-color-scheme, default to dark if unsupported
                 const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
-
                 function applyTheme() {
                     const light = mq && mq.matches;
                     root.dataset.theme = light ? "light" : "dark";
                 }
                 applyTheme();
-
                 if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", applyTheme);
                 else if (mq && typeof mq.addListener === "function") mq.addListener(applyTheme);
 
-                // Footer year
                 const y = document.getElementById("year");
                 if (y) y.textContent = new Date().getFullYear() + " ©";
 
-                // Reduced motion
                 const reduceMotionMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
                 const prefersReducedMotion = () => !!(reduceMotionMq && reduceMotionMq.matches);
 
-                // Parallax tilt (desktop only)
+                const wrap = document.getElementById("wrap");
                 const card = document.getElementById("card");
-                const wrap = card ? card.parentElement : null;
+                const cardFx = document.getElementById("cardFx");
 
                 let parallaxEnabled = false;
                 function canParallax() {
-                    // Avoid on touch / small screens + reduced motion
                     const finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
                     const hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
                     return finePointer && hover && !prefersReducedMotion();
@@ -468,14 +485,12 @@
 
                 function setParallaxEnabled(on) {
                     parallaxEnabled = on;
-                    if (!card || !wrap) return;
-                    if (!on) {
-                        card.style.transform = "";
-                        card.style.setProperty("--shine-x", "35%");
-                        card.style.setProperty("--shine-y", "25%");
+                    if (cardFx) {
+                        cardFx.style.transform = on ? "translateZ(0)" : "";
+                        cardFx.style.setProperty("--shine-x", "35%");
+                        cardFx.style.setProperty("--shine-y", "25%");
                     }
                 }
-
                 setParallaxEnabled(canParallax());
                 if (reduceMotionMq && typeof reduceMotionMq.addEventListener === "function") {
                     reduceMotionMq.addEventListener("change", () => setParallaxEnabled(canParallax()));
@@ -483,47 +498,45 @@
 
                 let rafTilt = 0;
                 function onMove(e) {
-                    if (!parallaxEnabled || !card) return;
+                    if (!parallaxEnabled || !cardFx || !card) return;
                     if (rafTilt) return;
-                    const x = e.clientX,
-                        y = e.clientY;
 
                     rafTilt = requestAnimationFrame(() => {
                         rafTilt = 0;
+
                         const r = card.getBoundingClientRect();
                         const cx = r.left + r.width / 2;
                         const cy = r.top + r.height / 2;
 
-                        const dx = (x - cx) / (r.width / 2);
-                        const dy = (y - cy) / (r.height / 2);
+                        const dx = (e.clientX - cx) / (r.width / 2);
+                        const dy = (e.clientY - cy) / (r.height / 2);
 
                         const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
                         const nx = clamp(dx, -1, 1);
                         const ny = clamp(dy, -1, 1);
 
-                        const rotY = nx * 6; // deg
-                        const rotX = -ny * 5; // deg
-                        const tz = 10; // px
+                        const rotY = nx * 7;
+                        const rotX = -ny * 6;
 
-                        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${tz}px)`;
-                        card.style.setProperty("--shine-x", `${(nx * 18 + 50).toFixed(2)}%`);
-                        card.style.setProperty("--shine-y", `${(ny * 16 + 35).toFixed(2)}%`);
+                        cardFx.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+                        cardFx.style.setProperty("--shine-x", `${(nx * 18 + 50).toFixed(2)}%`);
+                        cardFx.style.setProperty("--shine-y", `${(ny * 16 + 35).toFixed(2)}%`);
                     });
                 }
 
                 function onLeave() {
-                    if (!card) return;
-                    card.style.transform = "";
-                    card.style.setProperty("--shine-x", "35%");
-                    card.style.setProperty("--shine-y", "25%");
+                    if (!cardFx) return;
+                    cardFx.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                    cardFx.style.setProperty("--shine-x", "35%");
+                    cardFx.style.setProperty("--shine-y", "25%");
                 }
 
                 if (wrap) {
-                    window.addEventListener("mousemove", onMove, { passive: true });
-                    window.addEventListener("mouseleave", onLeave, { passive: true });
+                    wrap.addEventListener("mousemove", onMove, { passive: true });
+                    wrap.addEventListener("mouseleave", onLeave, { passive: true });
                 }
 
-                // Canvas background: gradient blobs + particles + subtle grid/waves (single cohesive effect)
                 const canvas = document.getElementById("bg");
                 const ctx = canvas && canvas.getContext ? canvas.getContext("2d", { alpha: true }) : null;
                 if (!canvas || !ctx) return;
@@ -532,21 +545,16 @@
                 let w = 0,
                     h = 0;
 
-                // Time / loop control
                 let running = true;
                 let lastT = performance.now();
-                let t = 0;
 
-                // Motion intensity
                 function qualityFactor() {
-                    // Keep it moderate and stable
                     const area = Math.max(1, window.innerWidth * window.innerHeight);
                     if (prefersReducedMotion()) return 0.25;
                     if (area > 1400 * 900) return 0.75;
                     return 1.0;
                 }
 
-                // Entities
                 let blobs = [];
                 let particles = [];
                 let gridPhase = 0;
@@ -559,7 +567,6 @@
                     canvas.height = h;
                     canvas.style.width = window.innerWidth + "px";
                     canvas.style.height = window.innerHeight + "px";
-
                     initScene();
                 }
 
@@ -574,8 +581,8 @@
                     blobs = Array.from({ length: blobCount }, (_, i) => {
                         const base = Math.min(w, h);
                         const r = rand(base * 0.18, base * 0.32) * (0.95 + i * 0.04);
-                        const speed = rand(0.05, 0.12) * q; // slow
-                        const hue = i % 2 === 0 ? 272 : 318; // violet/pink-ish
+                        const speed = rand(0.05, 0.12) * q;
+                        const hue = i % 2 === 0 ? 272 : 318;
                         const alpha = prefersReducedMotion() ? 0.18 : 0.22;
                         return {
                             x: rand(0.2 * w, 0.8 * w),
@@ -606,7 +613,6 @@
                 }
 
                 function drawBackgroundGradient() {
-                    // Base wash to unify everything
                     const isLight = root.dataset.theme === "light";
                     const g = ctx.createLinearGradient(0, 0, 0, h);
                     if (!isLight) {
@@ -633,7 +639,6 @@
                         b.x += b.driftX * dt * 30;
                         b.y += b.driftY * dt * 30;
 
-                        // wrap softly
                         if (b.x < -b.r) b.x = w + b.r;
                         if (b.x > w + b.r) b.x = -b.r;
                         if (b.y < -b.r) b.y = h + b.r;
@@ -658,7 +663,6 @@
                 }
 
                 function drawGridAndWaves(dt) {
-                    // Very subtle: thin grid + gentle wave distortion feeling
                     const isLight = root.dataset.theme === "light";
                     gridPhase += dt * (prefersReducedMotion() ? 0.003 : 0.006);
 
@@ -670,7 +674,6 @@
                     ctx.lineWidth = 1 * dpr;
                     ctx.strokeStyle = isLight ? `rgba(20, 18, 40, ${lineAlpha})` : `rgba(255, 255, 255, ${lineAlpha})`;
 
-                    // Vertical lines with tiny sine offset
                     for (let x = 0; x <= w; x += spacing) {
                         const wob = Math.sin(gridPhase + x / (220 * dpr)) * (6 * dpr);
                         ctx.beginPath();
@@ -679,7 +682,6 @@
                         ctx.stroke();
                     }
 
-                    // Horizontal lines with tiny sine offset
                     for (let y = 0; y <= h; y += spacing) {
                         const wob = Math.sin(gridPhase * 1.1 + y / (240 * dpr)) * (6 * dpr);
                         ctx.beginPath();
@@ -705,7 +707,6 @@
                         if (p.y < -20) p.y = h + 20;
                         if (p.y > h + 20) p.y = -20;
 
-                        // Small glints
                         const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 14 * dpr);
                         const a = p.o * (prefersReducedMotion() ? 0.55 : 1.0);
                         const c1 = isLight ? `rgba(139, 92, 246, ${0.2 * a})` : `rgba(255, 79, 216, ${0.22 * a})`;
@@ -719,7 +720,6 @@
                         ctx.arc(p.x, p.y, 14 * dpr, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // Core dot
                         ctx.fillStyle = isLight ? `rgba(20, 18, 40, ${0.1 * a})` : `rgba(255,255,255, ${0.12 * a})`;
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
@@ -735,20 +735,14 @@
                     const dtRaw = Math.min(34, now - lastT);
                     lastT = now;
 
-                    // If reduced motion, slow time a lot (still looks alive, but calm)
                     const timeScale = prefersReducedMotion() ? 0.35 : 1.0;
                     const dt = dtRaw * timeScale;
-                    t += dt;
 
-                    // Clear
                     drawBackgroundGradient();
-
-                    // Unified combined effect: grid under + blobs + particles + soft vignette
                     drawGridAndWaves(dt);
                     drawBlobs(dt);
                     drawParticles(dt);
 
-                    // Vignette to keep text readable
                     ctx.save();
                     const isLight = root.dataset.theme === "light";
                     const vg = ctx.createRadialGradient(
@@ -782,20 +776,15 @@
                     running = false;
                 }
 
-                // Pause/slow when hidden
                 document.addEventListener(
                     "visibilitychange",
                     () => {
-                        if (document.hidden) {
-                            stop();
-                        } else {
-                            start();
-                        }
+                        if (document.hidden) stop();
+                        else start();
                     },
                     { passive: true },
                 );
 
-                // Re-init on resize
                 let resizeRaf = 0;
                 window.addEventListener(
                     "resize",
@@ -806,9 +795,7 @@
                     { passive: true },
                 );
 
-                // Re-init scene on theme change (keeps palette balanced)
                 function onThemeUpdate() {
-                    // Just reinit counts/alphas; keep smooth
                     initScene();
                 }
                 if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", onThemeUpdate);
