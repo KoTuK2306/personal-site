@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="dark light" />
+        <title>Дмитрий Алешин — Frontend-интерфейсы с вниманием к деталям</title>
+        <meta
+            name="description"
+            content="Персональная визитка Дмитрия Алешина — Senior Frontend разработчик. React, Vue, Nuxt, TypeScript. Контакты: Telegram и LinkedIn."
+        />
+        <meta property="og:title" content="Дмитрий Алешин — Senior Frontend разработчик" />
+        <meta
+            property="og:description"
+            content="Современные интерфейсы: React, Vue, Nuxt, TypeScript. Связаться: Telegram / LinkedIn."
+        />
+        <meta property="og:type" content="website" />
+        <style>
+            :root {
+                --font:
+                    system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial,
+                    "Apple Color Emoji", "Segoe UI Emoji";
+                --radius: 22px;
+
+                /* Accent */
+                --violet: #8b5cf6;
+                --pink: #ff4fd8;
+                --cyan: #36d7ff;
+
+                /* Base (default: dark) */
+                --bg0: #070813;
+                --bg1: #0b0d1b;
+                --text: rgba(255, 255, 255, 0.92);
+                --muted: rgba(255, 255, 255, 0.7);
+                --hairline: rgba(255, 255, 255, 0.14);
+                --card: rgba(18, 18, 35, 0.55);
+                --cardFallback: rgba(18, 18, 35, 0.86);
+                --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+                --focus: rgba(54, 215, 255, 0.9);
+                --glow:
+                    0 0 0 1px rgba(255, 255, 255, 0.05), 0 14px 55px rgba(139, 92, 246, 0.2),
+                    0 10px 40px rgba(255, 79, 216, 0.12);
+
+                --contentMax: 860px;
+            }
+
+            /* Light theme overrides */
+            html[data-theme="light"] {
+                --bg0: #f6f6ff;
+                --bg1: #ffffff;
+                --text: rgba(16, 16, 28, 0.92);
+                --muted: rgba(16, 16, 28, 0.7);
+                --hairline: rgba(12, 10, 40, 0.14);
+                --card: rgba(255, 255, 255, 0.55);
+                --cardFallback: rgba(255, 255, 255, 0.92);
+                --shadow: 0 20px 60px rgba(17, 8, 42, 0.16);
+                --glow:
+                    0 0 0 1px rgba(0, 0, 0, 0.04), 0 18px 60px rgba(139, 92, 246, 0.18),
+                    0 10px 40px rgba(255, 79, 216, 0.1);
+                --focus: rgba(139, 92, 246, 0.85);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                font-family: var(--font);
+                color: var(--text);
+                background:
+                    radial-gradient(1200px 700px at 20% 10%, rgba(139, 92, 246, 0.22), transparent 60%),
+                    radial-gradient(900px 600px at 80% 20%, rgba(255, 79, 216, 0.16), transparent 55%),
+                    radial-gradient(1200px 900px at 50% 90%, rgba(54, 215, 255, 0.09), transparent 62%),
+                    linear-gradient(180deg, var(--bg0), var(--bg1));
+                overflow-x: hidden;
+            }
+
+            /* Canvas background */
+            canvas#bg {
+                position: fixed;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                pointer-events: none;
+                display: block;
+            }
+
+            /* Layout */
+            .page {
+                min-height: 100svh;
+                display: grid;
+                place-items: center;
+                padding: clamp(20px, 4vw, 48px);
+                position: relative;
+                z-index: 1;
+            }
+
+            .card-wrap {
+                width: min(var(--contentMax), 100%);
+                perspective: 900px;
+                transform-style: preserve-3d;
+            }
+
+            .card {
+                position: relative;
+                border-radius: var(--radius);
+                padding: clamp(22px, 3.2vw, 34px);
+                border: 1px solid var(--hairline);
+                box-shadow: var(--shadow), var(--glow);
+                background: var(--cardFallback);
+                transition:
+                    transform 180ms ease,
+                    box-shadow 220ms ease,
+                    border-color 220ms ease;
+                transform-style: preserve-3d;
+                will-change: transform;
+                overflow: hidden;
+            }
+
+            /* Glass if supported */
+            @supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+                .card {
+                    background: var(--card);
+                    backdrop-filter: blur(14px) saturate(1.15);
+                    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+                }
+            }
+
+            /* Subtle shine overlay */
+            .card::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                background: radial-gradient(
+                    600px 220px at var(--shine-x, 35%) var(--shine-y, 25%),
+                    rgba(255, 255, 255, 0.15),
+                    rgba(255, 255, 255, 0.05) 40%,
+                    transparent 70%
+                );
+                opacity: 0.55;
+                pointer-events: none;
+                mix-blend-mode: screen;
+                transition: opacity 220ms ease;
+            }
+            html[data-theme="light"] .card::before {
+                mix-blend-mode: overlay;
+                opacity: 0.45;
+            }
+
+            .card::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: var(--radius);
+                pointer-events: none;
+                background: linear-gradient(
+                    135deg,
+                    rgba(139, 92, 246, 0.28),
+                    rgba(255, 79, 216, 0.16),
+                    rgba(54, 215, 255, 0.1)
+                );
+                opacity: 0.1;
+                mask: linear-gradient(#000, transparent 70%);
+            }
+
+            .card:hover {
+                border-color: color-mix(in srgb, var(--hairline), rgba(255, 79, 216, 0.3) 35%);
+                box-shadow:
+                    var(--shadow),
+                    0 0 0 1px rgba(255, 255, 255, 0.06),
+                    0 22px 70px rgba(139, 92, 246, 0.22),
+                    0 16px 55px rgba(255, 79, 216, 0.14);
+            }
+
+            header {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 16px;
+                align-items: start;
+                margin-bottom: 18px;
+            }
+
+            .hero h1 {
+                margin: 0;
+                font-size: clamp(28px, 4vw, 44px);
+                letter-spacing: -0.02em;
+                line-height: 1.06;
+            }
+            .hero .role {
+                margin-top: 10px;
+                font-size: clamp(14px, 1.6vw, 18px);
+                color: var(--muted);
+                line-height: 1.35;
+            }
+
+            .contacts {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                justify-content: end;
+            }
+
+            .icon-btn {
+                width: 44px;
+                height: 44px;
+                display: inline-grid;
+                place-items: center;
+                border-radius: 14px;
+                border: 1px solid var(--hairline);
+                background: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+                color: var(--text);
+                text-decoration: none;
+                transition:
+                    transform 160ms ease,
+                    border-color 220ms ease,
+                    box-shadow 220ms ease,
+                    background 220ms ease;
+                position: relative;
+                overflow: hidden;
+            }
+            html[data-theme="light"] .icon-btn {
+                background: rgba(0, 0, 0, 0.03);
+                box-shadow: 0 10px 24px rgba(17, 8, 42, 0.1);
+            }
+            .icon-btn::before {
+                content: "";
+                position: absolute;
+                inset: -40%;
+                background:
+                    radial-gradient(circle at 30% 30%, rgba(255, 79, 216, 0.35), transparent 55%),
+                    radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.3), transparent 55%);
+                opacity: 0.22;
+                transform: translateZ(0);
+                transition: opacity 220ms ease;
+                pointer-events: none;
+            }
+            .icon-btn:hover {
+                transform: translateY(-1px);
+                border-color: color-mix(in srgb, var(--hairline), rgba(54, 215, 255, 0.45) 40%);
+                box-shadow:
+                    0 16px 42px rgba(0, 0, 0, 0.26),
+                    0 0 0 1px rgba(255, 255, 255, 0.06);
+                background: rgba(255, 255, 255, 0.07);
+            }
+            html[data-theme="light"] .icon-btn:hover {
+                background: rgba(0, 0, 0, 0.04);
+                box-shadow:
+                    0 16px 38px rgba(17, 8, 42, 0.14),
+                    0 0 0 1px rgba(0, 0, 0, 0.04);
+            }
+            .icon-btn:hover::before {
+                opacity: 0.34;
+            }
+
+            .icon-btn:active {
+                transform: translateY(0px) scale(0.98);
+            }
+
+            .icon-btn:focus-visible {
+                outline: 3px solid color-mix(in srgb, var(--focus), transparent 20%);
+                outline-offset: 2px;
+            }
+
+            .icon {
+                width: 22px;
+                height: 22px;
+                display: block;
+                transform: translateZ(30px);
+                opacity: 0.95;
+            }
+            .icon path,
+            .icon circle {
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            main {
+                margin-top: 6px;
+            }
+
+            .about {
+                margin: 0;
+                color: var(--text);
+                font-size: clamp(15px, 1.6vw, 17px);
+                line-height: 1.65;
+                max-width: 70ch;
+            }
+            .about strong {
+                font-weight: 650;
+                color: color-mix(in srgb, var(--text), rgba(255, 79, 216, 0.35) 22%);
+            }
+
+            footer {
+                margin-top: 22px;
+                padding-top: 16px;
+                border-top: 1px solid color-mix(in srgb, var(--hairline), transparent 10%);
+                display: flex;
+                justify-content: space-between;
+                gap: 14px;
+                flex-wrap: wrap;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .fine {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 999px;
+                background:
+                    radial-gradient(
+                        circle at 30% 30%,
+                        rgba(255, 255, 255, 0.9),
+                        rgba(255, 255, 255, 0.2) 35%,
+                        transparent 62%
+                    ),
+                    linear-gradient(135deg, var(--violet), var(--pink));
+                box-shadow:
+                    0 0 18px rgba(255, 79, 216, 0.22),
+                    0 0 22px rgba(139, 92, 246, 0.18);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+
+            /* Responsive */
+            @media (max-width: 520px) {
+                header {
+                    grid-template-columns: 1fr;
+                }
+                .contacts {
+                    justify-content: start;
+                }
+            }
+
+            /* Reduced motion */
+            @media (prefers-reduced-motion: reduce) {
+                .card,
+                .icon-btn {
+                    transition: none;
+                }
+                .card:hover {
+                    transform: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="bg" aria-hidden="true"></canvas>
+
+        <div class="page">
+            <div class="card-wrap">
+                <section class="card" id="card" aria-label="Персональная визитка">
+                    <header>
+                        <div class="hero">
+                            <h1>Дмитрий Алешин</h1>
+                            <div class="role">Senior Frontend разработчик</div>
+                        </div>
+
+                        <nav class="contacts" aria-label="Контакты">
+                            <a
+                                class="icon-btn"
+                                href="https://t.me/dim0oo0n"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Написать в Telegram"
+                                title="Telegram"
+                            >
+                                <!-- Telegram icon (inline SVG) -->
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M21.8 4.6L3.4 11.7c-.9.35-.86 1.63.07 1.92l4.7 1.47 1.8 5.6c.28.86 1.38.99 1.84.22l2.6-4.3 4.9 3.6c.67.49 1.62.12 1.79-.7l2.9-13.6c.2-.9-.66-1.62-1.2-1.38Z"
+                                    />
+                                    <path d="M8.1 15.1l12.8-9.2" />
+                                    <path d="M8.1 15.1l5.1 4.1" />
+                                </svg>
+                            </a>
+
+                            <a
+                                class="icon-btn"
+                                href="https://www.linkedin.com/in/dmitriy-aleshin-54b2393a9/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Открыть LinkedIn"
+                                title="LinkedIn"
+                            >
+                                <!-- LinkedIn icon (inline SVG) -->
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M6.4 10.2v10.3" />
+                                    <path d="M6.4 6.2v.2" />
+                                    <path d="M10.2 20.5V10.2" />
+                                    <path d="M10.2 13.8c.7-2.5 2.4-3.7 4.6-3.7 2.7 0 4.4 1.8 4.4 5.2v5.2" />
+                                    <path d="M19.2 20.5v-6.2" />
+                                </svg>
+                            </a>
+                        </nav>
+                    </header>
+
+                    <main>
+                        <p class="about">
+                            Делаю интерфейсы, которые ощущаются быстрыми и аккуратными — от компонентов до целых
+                            продуктов. В работе опираюсь на <strong>React</strong> и <strong>Vue</strong>, люблю чистую
+                            типизацию в <strong>TypeScript</strong>, а для SSR/архитектуры часто выбираю
+                            <strong>Nuxt</strong>. Ценю предсказуемость, доступность и детали: анимации — мягкие, UX —
+                            честный, код — поддерживаемый.
+                        </p>
+                    </main>
+
+                    <footer>
+                        <div class="fine">
+                            <span class="dot" aria-hidden="true"></span>
+                            <span id="year"></span>
+                        </div>
+                        <div>Дмитрий Алешин</div>
+                    </footer>
+                </section>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                const root = document.documentElement;
+
+                // Theme: follow prefers-color-scheme, default to dark if unsupported
+                const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+
+                function applyTheme() {
+                    const light = mq && mq.matches;
+                    root.dataset.theme = light ? "light" : "dark";
+                }
+                applyTheme();
+
+                if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", applyTheme);
+                else if (mq && typeof mq.addListener === "function") mq.addListener(applyTheme);
+
+                // Footer year
+                const y = document.getElementById("year");
+                if (y) y.textContent = new Date().getFullYear() + " ©";
+
+                // Reduced motion
+                const reduceMotionMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+                const prefersReducedMotion = () => !!(reduceMotionMq && reduceMotionMq.matches);
+
+                // Parallax tilt (desktop only)
+                const card = document.getElementById("card");
+                const wrap = card ? card.parentElement : null;
+
+                let parallaxEnabled = false;
+                function canParallax() {
+                    // Avoid on touch / small screens + reduced motion
+                    const finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
+                    const hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+                    return finePointer && hover && !prefersReducedMotion();
+                }
+
+                function setParallaxEnabled(on) {
+                    parallaxEnabled = on;
+                    if (!card || !wrap) return;
+                    if (!on) {
+                        card.style.transform = "";
+                        card.style.setProperty("--shine-x", "35%");
+                        card.style.setProperty("--shine-y", "25%");
+                    }
+                }
+
+                setParallaxEnabled(canParallax());
+                if (reduceMotionMq && typeof reduceMotionMq.addEventListener === "function") {
+                    reduceMotionMq.addEventListener("change", () => setParallaxEnabled(canParallax()));
+                }
+
+                let rafTilt = 0;
+                function onMove(e) {
+                    if (!parallaxEnabled || !card) return;
+                    if (rafTilt) return;
+                    const x = e.clientX,
+                        y = e.clientY;
+
+                    rafTilt = requestAnimationFrame(() => {
+                        rafTilt = 0;
+                        const r = card.getBoundingClientRect();
+                        const cx = r.left + r.width / 2;
+                        const cy = r.top + r.height / 2;
+
+                        const dx = (x - cx) / (r.width / 2);
+                        const dy = (y - cy) / (r.height / 2);
+
+                        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+                        const nx = clamp(dx, -1, 1);
+                        const ny = clamp(dy, -1, 1);
+
+                        const rotY = nx * 6; // deg
+                        const rotX = -ny * 5; // deg
+                        const tz = 10; // px
+
+                        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${tz}px)`;
+                        card.style.setProperty("--shine-x", `${(nx * 18 + 50).toFixed(2)}%`);
+                        card.style.setProperty("--shine-y", `${(ny * 16 + 35).toFixed(2)}%`);
+                    });
+                }
+
+                function onLeave() {
+                    if (!card) return;
+                    card.style.transform = "";
+                    card.style.setProperty("--shine-x", "35%");
+                    card.style.setProperty("--shine-y", "25%");
+                }
+
+                if (wrap) {
+                    window.addEventListener("mousemove", onMove, { passive: true });
+                    window.addEventListener("mouseleave", onLeave, { passive: true });
+                }
+
+                // Canvas background: gradient blobs + particles + subtle grid/waves (single cohesive effect)
+                const canvas = document.getElementById("bg");
+                const ctx = canvas && canvas.getContext ? canvas.getContext("2d", { alpha: true }) : null;
+                if (!canvas || !ctx) return;
+
+                let dpr = Math.min(2, window.devicePixelRatio || 1);
+                let w = 0,
+                    h = 0;
+
+                // Time / loop control
+                let running = true;
+                let lastT = performance.now();
+                let t = 0;
+
+                // Motion intensity
+                function qualityFactor() {
+                    // Keep it moderate and stable
+                    const area = Math.max(1, window.innerWidth * window.innerHeight);
+                    if (prefersReducedMotion()) return 0.25;
+                    if (area > 1400 * 900) return 0.75;
+                    return 1.0;
+                }
+
+                // Entities
+                let blobs = [];
+                let particles = [];
+                let gridPhase = 0;
+
+                function resize() {
+                    dpr = Math.min(2, window.devicePixelRatio || 1);
+                    w = Math.floor(window.innerWidth * dpr);
+                    h = Math.floor(window.innerHeight * dpr);
+                    canvas.width = w;
+                    canvas.height = h;
+                    canvas.style.width = window.innerWidth + "px";
+                    canvas.style.height = window.innerHeight + "px";
+
+                    initScene();
+                }
+
+                function rand(a, b) {
+                    return a + Math.random() * (b - a);
+                }
+
+                function initScene() {
+                    const q = qualityFactor();
+
+                    const blobCount = prefersReducedMotion() ? 2 : 4;
+                    blobs = Array.from({ length: blobCount }, (_, i) => {
+                        const base = Math.min(w, h);
+                        const r = rand(base * 0.18, base * 0.32) * (0.95 + i * 0.04);
+                        const speed = rand(0.05, 0.12) * q; // slow
+                        const hue = i % 2 === 0 ? 272 : 318; // violet/pink-ish
+                        const alpha = prefersReducedMotion() ? 0.18 : 0.22;
+                        return {
+                            x: rand(0.2 * w, 0.8 * w),
+                            y: rand(0.2 * h, 0.8 * h),
+                            r,
+                            a: rand(0, Math.PI * 2),
+                            speed,
+                            hue,
+                            alpha,
+                            wobble: rand(0.6, 1.3),
+                            driftX: rand(-0.08, 0.08) * q,
+                            driftY: rand(-0.06, 0.06) * q,
+                        };
+                    });
+
+                    const particleCount = Math.floor((prefersReducedMotion() ? 26 : 52) * q);
+                    particles = Array.from({ length: particleCount }, () => {
+                        const s = rand(0.7, 1.6) * dpr;
+                        return {
+                            x: Math.random() * w,
+                            y: Math.random() * h,
+                            vx: rand(-0.08, 0.08) * dpr * q,
+                            vy: rand(-0.06, 0.06) * dpr * q,
+                            s,
+                            o: rand(0.22, 0.55),
+                        };
+                    });
+                }
+
+                function drawBackgroundGradient() {
+                    // Base wash to unify everything
+                    const isLight = root.dataset.theme === "light";
+                    const g = ctx.createLinearGradient(0, 0, 0, h);
+                    if (!isLight) {
+                        g.addColorStop(0, "rgba(8, 9, 20, 0.92)");
+                        g.addColorStop(1, "rgba(9, 10, 24, 0.92)");
+                    } else {
+                        g.addColorStop(0, "rgba(248, 248, 255, 0.90)");
+                        g.addColorStop(1, "rgba(255, 255, 255, 0.92)");
+                    }
+                    ctx.fillStyle = g;
+                    ctx.fillRect(0, 0, w, h);
+                }
+
+                function drawBlobs(dt) {
+                    const isLight = root.dataset.theme === "light";
+                    ctx.save();
+                    ctx.globalCompositeOperation = "lighter";
+
+                    for (const b of blobs) {
+                        b.a += b.speed * dt;
+                        const ox = Math.cos(b.a) * (b.r * 0.18) * b.wobble;
+                        const oy = Math.sin(b.a * 0.9) * (b.r * 0.14) * b.wobble;
+
+                        b.x += b.driftX * dt * 30;
+                        b.y += b.driftY * dt * 30;
+
+                        // wrap softly
+                        if (b.x < -b.r) b.x = w + b.r;
+                        if (b.x > w + b.r) b.x = -b.r;
+                        if (b.y < -b.r) b.y = h + b.r;
+                        if (b.y > h + b.r) b.y = -b.r;
+
+                        const x = b.x + ox;
+                        const y = b.y + oy;
+
+                        const grad = ctx.createRadialGradient(x, y, b.r * 0.1, x, y, b.r);
+                        const a0 = isLight ? b.alpha * 0.75 : b.alpha;
+                        grad.addColorStop(0, `hsla(${b.hue}, 95%, ${isLight ? 60 : 62}%, ${a0})`);
+                        grad.addColorStop(0.55, `hsla(${b.hue}, 95%, ${isLight ? 62 : 60}%, ${a0 * 0.35})`);
+                        grad.addColorStop(1, "rgba(0,0,0,0)");
+
+                        ctx.fillStyle = grad;
+                        ctx.beginPath();
+                        ctx.arc(x, y, b.r, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    ctx.restore();
+                }
+
+                function drawGridAndWaves(dt) {
+                    // Very subtle: thin grid + gentle wave distortion feeling
+                    const isLight = root.dataset.theme === "light";
+                    gridPhase += dt * (prefersReducedMotion() ? 0.003 : 0.006);
+
+                    const spacing = Math.round(64 * dpr);
+                    const lineAlpha = isLight ? 0.055 : 0.06;
+
+                    ctx.save();
+                    ctx.globalCompositeOperation = "source-over";
+                    ctx.lineWidth = 1 * dpr;
+                    ctx.strokeStyle = isLight ? `rgba(20, 18, 40, ${lineAlpha})` : `rgba(255, 255, 255, ${lineAlpha})`;
+
+                    // Vertical lines with tiny sine offset
+                    for (let x = 0; x <= w; x += spacing) {
+                        const wob = Math.sin(gridPhase + x / (220 * dpr)) * (6 * dpr);
+                        ctx.beginPath();
+                        ctx.moveTo(x + wob, 0);
+                        ctx.lineTo(x + wob, h);
+                        ctx.stroke();
+                    }
+
+                    // Horizontal lines with tiny sine offset
+                    for (let y = 0; y <= h; y += spacing) {
+                        const wob = Math.sin(gridPhase * 1.1 + y / (240 * dpr)) * (6 * dpr);
+                        ctx.beginPath();
+                        ctx.moveTo(0, y + wob);
+                        ctx.lineTo(w, y + wob);
+                        ctx.stroke();
+                    }
+
+                    ctx.restore();
+                }
+
+                function drawParticles(dt) {
+                    const isLight = root.dataset.theme === "light";
+                    ctx.save();
+                    ctx.globalCompositeOperation = "screen";
+
+                    for (const p of particles) {
+                        p.x += p.vx * dt * 30;
+                        p.y += p.vy * dt * 30;
+
+                        if (p.x < -20) p.x = w + 20;
+                        if (p.x > w + 20) p.x = -20;
+                        if (p.y < -20) p.y = h + 20;
+                        if (p.y > h + 20) p.y = -20;
+
+                        // Small glints
+                        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 14 * dpr);
+                        const a = p.o * (prefersReducedMotion() ? 0.55 : 1.0);
+                        const c1 = isLight ? `rgba(139, 92, 246, ${0.2 * a})` : `rgba(255, 79, 216, ${0.22 * a})`;
+                        const c2 = isLight ? `rgba(255, 79, 216, ${0.14 * a})` : `rgba(54, 215, 255, ${0.12 * a})`;
+                        g.addColorStop(0, c1);
+                        g.addColorStop(0.5, c2);
+                        g.addColorStop(1, "rgba(0,0,0,0)");
+
+                        ctx.fillStyle = g;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 14 * dpr, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Core dot
+                        ctx.fillStyle = isLight ? `rgba(20, 18, 40, ${0.1 * a})` : `rgba(255,255,255, ${0.12 * a})`;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    ctx.restore();
+                }
+
+                function render(now) {
+                    if (!running) return;
+
+                    const dtRaw = Math.min(34, now - lastT);
+                    lastT = now;
+
+                    // If reduced motion, slow time a lot (still looks alive, but calm)
+                    const timeScale = prefersReducedMotion() ? 0.35 : 1.0;
+                    const dt = dtRaw * timeScale;
+                    t += dt;
+
+                    // Clear
+                    drawBackgroundGradient();
+
+                    // Unified combined effect: grid under + blobs + particles + soft vignette
+                    drawGridAndWaves(dt);
+                    drawBlobs(dt);
+                    drawParticles(dt);
+
+                    // Vignette to keep text readable
+                    ctx.save();
+                    const isLight = root.dataset.theme === "light";
+                    const vg = ctx.createRadialGradient(
+                        w * 0.5,
+                        h * 0.35,
+                        Math.min(w, h) * 0.1,
+                        w * 0.5,
+                        h * 0.5,
+                        Math.min(w, h) * 0.68,
+                    );
+                    if (!isLight) {
+                        vg.addColorStop(0, "rgba(0,0,0,0)");
+                        vg.addColorStop(1, "rgba(0,0,0,0.38)");
+                    } else {
+                        vg.addColorStop(0, "rgba(255,255,255,0)");
+                        vg.addColorStop(1, "rgba(255,255,255,0.40)");
+                    }
+                    ctx.fillStyle = vg;
+                    ctx.fillRect(0, 0, w, h);
+                    ctx.restore();
+
+                    requestAnimationFrame(render);
+                }
+
+                function start() {
+                    running = true;
+                    lastT = performance.now();
+                    requestAnimationFrame(render);
+                }
+                function stop() {
+                    running = false;
+                }
+
+                // Pause/slow when hidden
+                document.addEventListener(
+                    "visibilitychange",
+                    () => {
+                        if (document.hidden) {
+                            stop();
+                        } else {
+                            start();
+                        }
+                    },
+                    { passive: true },
+                );
+
+                // Re-init on resize
+                let resizeRaf = 0;
+                window.addEventListener(
+                    "resize",
+                    () => {
+                        if (resizeRaf) cancelAnimationFrame(resizeRaf);
+                        resizeRaf = requestAnimationFrame(resize);
+                    },
+                    { passive: true },
+                );
+
+                // Re-init scene on theme change (keeps palette balanced)
+                function onThemeUpdate() {
+                    // Just reinit counts/alphas; keep smooth
+                    initScene();
+                }
+                if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", onThemeUpdate);
+                else if (mq && typeof mq.addListener === "function") mq.addListener(onThemeUpdate);
+
+                resize();
+                start();
+            })();
+        </script>
+    </body>
+</html>
