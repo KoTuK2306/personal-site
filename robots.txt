@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-Sitemap: https://kotuk2306.github.io/sitemap.xml
+Sitemap: https://dim0n-c0de.site/sitemap.xml
