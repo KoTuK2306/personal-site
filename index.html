@@ -1,809 +1,1381 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="dark light" />
+  <head>
+    <!-- ==================== БАЗОВЫЕ META ==================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Алешин Дмитрий — Senior Frontend Developer & Team Lead | Резюме</title>
+    <meta
+      name="description"
+      content="Senior Frontend Developer с 6+ годами опыта. React, TypeScript, Redux Toolkit, Next.js, WebSocket. Team Lead команды до 7 разработчиков. Москва, удалённо."
+    />
+    <meta name="yandex-verification" content="321b337460a2f9c7" />
+    <meta
+      name="keywords"
+      content="Senior Frontend Developer, React, TypeScript, Redux Toolkit, Next.js, Team Lead, frontend, разработчик, Москва, удалённо, fintech, enterprise"
+    />
+    <meta name="author" content="Алешин Дмитрий Алексеевич" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="yandex" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="language" content="Russian" />
+    <meta name="content-language" content="ru" />
 
-        <title>Дмитрий Алешин — Senior Frontend • интерфейсы и детали</title>
-        <meta
-            name="description"
-            content="Персональная визитка Дмитрия Алешина — Senior Frontend разработчик. React, Vue, Nuxt, TypeScript. Контакты: Telegram и LinkedIn."
-        />
+    <!-- ==================== CANONICAL & HREFLANG ==================== -->
+    <link rel="canonical" href="https://kotuk2306.github.io/" />
+    <link rel="alternate" hreflang="ru" href="https://kotuk2306.github.io/" />
+    <link rel="alternate" hreflang="x-default" href="https://kotuk2306.github.io/" />
 
-        <meta property="og:title" content="Дмитрий Алешин — Senior Frontend разработчик" />
-        <meta property="og:description" content="React, Vue, Nuxt, TypeScript. Связаться: Telegram и LinkedIn." />
-        <meta property="og:type" content="website" />
+    <!-- ==================== GEO & CONTACT ==================== -->
+    <meta name="geo.region" content="RU-MOW" />
+    <meta name="geo.placename" content="Москва" />
+    <meta name="geo.position" content="55.7558;37.6173" />
+    <meta name="ICBM" content="55.7558, 37.6173" />
+    <meta name="format-detection" content="telephone=yes" />
 
-        <link
-            rel="icon"
-            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='30%25' cy='28%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.95'/%3E%3Cstop offset='18%25' stop-color='%23ffd1fb' stop-opacity='.75'/%3E%3Cstop offset='45%25' stop-color='%23ff4fd8' stop-opacity='.95'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6' stop-opacity='1'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='70%25' cy='78%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2336d7ff' stop-opacity='.55'/%3E%3Cstop offset='70%25' stop-color='%2336d7ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ring' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.55'/%3E%3Cstop offset='40%25' stop-color='%23ffffff' stop-opacity='.15'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='.18'/%3E%3C/linearGradient%3E%3Cfilter id='soft' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='64' height='64' fill='none'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g1)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g2)'/%3E%3Ccircle cx='26' cy='22' r='7' fill='%23ffffff' opacity='.35' filter='url(%23soft)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23ring)' stroke-width='2'/%3E%3C/svg%3E"
-        />
-        <link
-            rel="apple-touch-icon"
-            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='30%25' cy='28%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.95'/%3E%3Cstop offset='18%25' stop-color='%23ffd1fb' stop-opacity='.75'/%3E%3Cstop offset='45%25' stop-color='%23ff4fd8' stop-opacity='.95'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6' stop-opacity='1'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='70%25' cy='78%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%2336d7ff' stop-opacity='.55'/%3E%3Cstop offset='70%25' stop-color='%2336d7ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ring' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='.55'/%3E%3Cstop offset='40%25' stop-color='%23ffffff' stop-opacity='.15'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='.18'/%3E%3C/linearGradient%3E%3Cfilter id='soft' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='0.6'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='64' height='64' fill='none'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g1)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g2)'/%3E%3Ccircle cx='26' cy='22' r='7' fill='%23ffffff' opacity='.35' filter='url(%23soft)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23ring)' stroke-width='2'/%3E%3C/svg%3E"
-        />
+    <!-- ==================== THEME & MOBILE ==================== -->
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Алешин Дмитрий" />
+    <meta name="application-name" content="Алешин Дмитрий — Резюме" />
+    <meta name="msapplication-TileColor" content="#6366f1" />
+    <meta name="msapplication-navbutton-color" content="#0a0a0f" />
 
-        <style>
-            :root {
-                --font:
-                    system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial,
-                    "Apple Color Emoji", "Segoe UI Emoji";
-                --radius: 22px;
+    <!-- ==================== FAVICON ==================== -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="mask-icon" href="favicon.svg" color="#6366f1" />
 
-                --violet: #8b5cf6;
-                --pink: #ff4fd8;
-                --cyan: #36d7ff;
+    <!-- ==================== OPEN GRAPH (Facebook, VK, Telegram) ==================== -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Алешин Дмитрий — Senior Frontend Developer & Team Lead" />
+    <meta
+      property="og:description"
+      content="Senior Frontend Developer с 6+ годами опыта. React, TypeScript, Redux Toolkit, Next.js, WebSocket. Team Lead команды до 7 разработчиков."
+    />
+    <meta property="og:url" content="https://kotuk2306.github.io/" />
+    <meta property="og:site_name" content="Алешин Дмитрий — Резюме" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://kotuk2306.github.io/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Алешин Дмитрий — Senior Frontend Developer & Team Lead" />
+    <meta property="profile:first_name" content="Дмитрий" />
+    <meta property="profile:last_name" content="Алешин" />
+    <meta property="profile:username" content="KoTuK2306" />
+    <meta property="profile:gender" content="male" />
 
-                --bg0: #070813;
-                --bg1: #0b0d1b;
-                --text: rgba(255, 255, 255, 0.92);
-                --muted: rgba(255, 255, 255, 0.7);
-                --hairline: rgba(255, 255, 255, 0.14);
-                --card: rgba(18, 18, 35, 0.55);
-                --cardFallback: rgba(18, 18, 35, 0.86);
-                --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    <!-- ==================== TWITTER CARDS ==================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Алешин Дмитрий — Senior Frontend Developer & Team Lead" />
+    <meta
+      name="twitter:description"
+      content="Senior Frontend Developer с 6+ годами опыта. React, TypeScript, Redux Toolkit, Next.js, WebSocket. Team Lead команды до 7 разработчиков."
+    />
+    <meta name="twitter:image" content="https://kotuk2306.github.io/og-image.svg" />
+    <meta name="twitter:image:alt" content="Алешин Дмитрий — Senior Frontend Developer & Team Lead" />
+    <meta name="twitter:creator" content="@dim0oo0n" />
 
-                --focus: rgba(54, 215, 255, 0.9);
-                --glow:
-                    0 0 0 1px rgba(255, 255, 255, 0.05), 0 14px 55px rgba(139, 92, 246, 0.2),
-                    0 10px 40px rgba(255, 79, 216, 0.12);
+    <!-- ==================== PRECONNECT & PRELOAD ==================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+    />
+    <link rel="preload" href="favicon.svg" as="image" type="image/svg+xml" />
 
-                --contentMax: 860px;
+    <!-- ==================== FONTS ==================== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- ==================== SCHEMA.ORG JSON-LD ==================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://kotuk2306.github.io/#profilepage",
+            "url": "https://kotuk2306.github.io/",
+            "name": "Алешин Дмитрий — Senior Frontend Developer & Team Lead",
+            "description": "Senior Frontend Developer с 6+ годами опыта. React, TypeScript, Redux Toolkit, Next.js, WebSocket. Team Lead команды до 7 разработчиков.",
+            "inLanguage": "ru-RU",
+            "isPartOf": {
+              "@id": "https://kotuk2306.github.io/#website"
+            },
+            "mainEntity": {
+              "@id": "https://kotuk2306.github.io/#person"
             }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kotuk2306.github.io/#website",
+            "url": "https://kotuk2306.github.io/",
+            "name": "Алешин Дмитрий — Резюме",
+            "description": "Персональное резюме Senior Frontend Developer",
+            "publisher": {
+              "@id": "https://kotuk2306.github.io/#person"
+            },
+            "inLanguage": "ru-RU"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://kotuk2306.github.io/#person",
+            "name": "Алешин Дмитрий Алексеевич",
+            "givenName": "Дмитрий",
+            "familyName": "Алешин",
+            "additionalName": "Алексеевич",
+            "jobTitle": "Senior Frontend Developer / Team Lead",
+            "description": "Senior frontend-разработчик с более чем 6 годами опыта в JavaScript/TypeScript и экосистеме React. Специализируюсь на архитектуре масштабируемых enterprise-SPA, производительности, UI-платформах и стандартизации frontend-разработки.",
+            "url": "https://kotuk2306.github.io/",
+            "sameAs": ["https://github.com/KoTuK2306", "https://linkedin.com/in/meow-muser", "https://t.me/dim0oo0n"],
+            "email": "mailto:dmitriy_aleshin_00.work@mail.ru",
+            "telephone": "+79806323459",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Москва",
+              "addressCountry": "RU"
+            },
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "Тверской государственный университет",
+                "sameAs": "https://tversu.ru/"
+              }
+            ],
+            "knowsAbout": ["React", "TypeScript", "Redux Toolkit", "Next.js", "WebSocket", "Frontend Architecture", "UI/UX", "CI/CD", "Team Leadership"],
+            "worksFor": [
+              {
+                "@type": "Organization",
+                "name": "ВТБ Регистратор",
+                "jobTitle": "Senior Frontend Developer / Team Lead",
+                "startDate": "2024-01",
+                "endDate": "present"
+              },
+              {
+                "@type": "Organization",
+                "name": "ООО «Цифровые Контрольные Технологии»",
+                "jobTitle": "Middle → Senior Frontend Developer",
+                "startDate": "2020-02",
+                "endDate": "2023-12"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
-            html[data-theme="light"] {
-                --bg0: #f6f6ff;
-                --bg1: #ffffff;
-                --text: rgba(16, 16, 28, 0.92);
-                --muted: rgba(16, 16, 28, 0.7);
-                --hairline: rgba(12, 10, 40, 0.14);
-                --card: rgba(255, 255, 255, 0.55);
-                --cardFallback: rgba(255, 255, 255, 0.92);
-                --shadow: 0 20px 60px rgba(17, 8, 42, 0.16);
-                --glow:
-                    0 0 0 1px rgba(0, 0, 0, 0.04), 0 18px 60px rgba(139, 92, 246, 0.18),
-                    0 10px 40px rgba(255, 79, 216, 0.1);
-                --focus: rgba(139, 92, 246, 0.85);
-            }
+    <!-- ==================== STYLES ==================== -->
+    <style>
+      :root {
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #111118;
+        --bg-card: #16161f;
+        --bg-card-hover: #1c1c28;
+        --border: #252535;
+        --border-hover: #353550;
+        --text-primary: #f0f0f5;
+        --text-secondary: #9ca3af;
+        --text-muted: #6b7280;
+        --accent: #6366f1;
+        --accent-light: #818cf8;
+        --accent-dark: #4f46e5;
+        --accent-glow: rgba(99, 102, 241, 0.15);
+        --success: #10b981;
+        --warning: #f59e0b;
+        --gradient-1: #6366f1;
+        --gradient-2: #8b5cf6;
+        --gradient-3: #ec4899;
+      }
 
-            * {
-                box-sizing: border-box;
-            }
-            html,
-            body {
-                height: 100%;
-            }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-            body {
-                margin: 0;
-                font-family: var(--font);
-                color: var(--text);
-                background:
-                    radial-gradient(1200px 700px at 20% 10%, rgba(139, 92, 246, 0.22), transparent 60%),
-                    radial-gradient(900px 600px at 80% 20%, rgba(255, 79, 216, 0.16), transparent 55%),
-                    radial-gradient(1200px 900px at 50% 90%, rgba(54, 215, 255, 0.09), transparent 62%),
-                    linear-gradient(180deg, var(--bg0), var(--bg1));
-                overflow-x: hidden;
-            }
+      html {
+        scroll-behavior: smooth;
+      }
 
-            canvas#bg {
-                position: fixed;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 0;
-                pointer-events: none !important;
-                display: block;
-            }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
 
-            .page {
-                min-height: 100svh;
-                display: grid;
-                place-items: center;
-                padding: clamp(20px, 4vw, 48px);
-                position: relative;
-                z-index: 1;
-            }
+      /* Animated background */
+      .bg-mesh {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
 
-            .card-wrap {
-                width: min(var(--contentMax), 100%);
-                perspective: 900px;
-                transform-style: preserve-3d;
-            }
+      .bg-mesh::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background:
+          radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+          radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+          radial-gradient(ellipse 50% 50% at 50% 100%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
+        animation: meshMove 20s ease-in-out infinite;
+      }
 
-            .card {
-                position: relative;
-                border-radius: var(--radius);
-                padding: clamp(22px, 3.2vw, 34px);
-                background: transparent;
-                border: 1px solid transparent;
-                box-shadow: none;
-                overflow: hidden;
-            }
+      @keyframes meshMove {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(2%, 2%) rotate(1deg);
+        }
+        66% {
+          transform: translate(-1%, 1%) rotate(-1deg);
+        }
+      }
 
-            .card__inner {
-                position: relative;
-                z-index: 2;
-            }
+      /* Grid pattern overlay */
+      .grid-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 70%);
+      }
 
-            .card__fx {
-                position: absolute;
-                inset: 0;
-                border-radius: var(--radius);
-                z-index: 1;
-                pointer-events: none;
-                will-change: transform;
-                border: 1px solid var(--hairline);
-                box-shadow: var(--shadow), var(--glow);
-                background: var(--cardFallback);
-                transform-style: preserve-3d;
-                transform-origin: 50% 50%;
-                transform: rotateX(0deg) rotateY(0deg);
-            }
+      /* Cursor glow effect */
+      .cursor-glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+      }
 
-            @supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
-                .card__fx {
-                    background: var(--card);
-                    backdrop-filter: blur(14px) saturate(1.15);
-                    -webkit-backdrop-filter: blur(14px) saturate(1.15);
-                }
-            }
+      /* Main container */
+      .container {
+        position: relative;
+        z-index: 10;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-            .card__fx::before {
-                content: "";
-                position: absolute;
-                inset: -2px;
-                border-radius: var(--radius);
-                background: radial-gradient(
-                    600px 220px at var(--shine-x, 35%) var(--shine-y, 25%),
-                    rgba(255, 255, 255, 0.15),
-                    rgba(255, 255, 255, 0.05) 40%,
-                    transparent 70%
-                );
-                opacity: 0.55;
-                pointer-events: none;
-                mix-blend-mode: screen;
-                transition: opacity 220ms ease;
-            }
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 16px 0;
+        background: rgba(10, 10, 15, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s ease;
+      }
 
-            html[data-theme="light"] .card__fx::before {
-                mix-blend-mode: overlay;
-                opacity: 0.45;
-            }
+      nav.scrolled {
+        border-bottom-color: var(--border);
+      }
 
-            .card__fx::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: var(--radius);
-                pointer-events: none;
-                background: linear-gradient(
-                    135deg,
-                    rgba(139, 92, 246, 0.28),
-                    rgba(255, 79, 216, 0.16),
-                    rgba(54, 215, 255, 0.1)
-                );
-                opacity: 0.1;
-                mask: linear-gradient(#000, transparent 70%);
-            }
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-            .card:hover .card__fx {
-                border-color: color-mix(in srgb, var(--hairline), rgba(255, 79, 216, 0.3) 35%);
-                box-shadow:
-                    var(--shadow),
-                    0 0 0 1px rgba(255, 255, 255, 0.06),
-                    0 22px 70px rgba(139, 92, 246, 0.22),
-                    0 16px 55px rgba(255, 79, 216, 0.14);
-            }
+      .nav-logo {
+        font-weight: 700;
+        font-size: 1.1rem;
+        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-            header {
-                display: grid;
-                grid-template-columns: 1fr auto;
-                gap: 16px;
-                align-items: start;
-                margin-bottom: 18px;
-            }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
 
-            .hero h1 {
-                margin: 0;
-                font-size: clamp(28px, 4vw, 44px);
-                letter-spacing: -0.02em;
-                line-height: 1.06;
-            }
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        position: relative;
+      }
 
-            .hero .role {
-                margin-top: 10px;
-                font-size: clamp(14px, 1.6vw, 18px);
-                color: var(--muted);
-                line-height: 1.35;
-            }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+        transition: width 0.3s ease;
+      }
 
-            .contacts {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                justify-content: end;
-            }
+      .nav-links a:hover {
+        color: var(--text-primary);
+      }
 
-            .icon-btn {
-                width: 44px;
-                height: 44px;
-                display: inline-grid;
-                place-items: center;
-                border-radius: 14px;
-                border: 1px solid var(--hairline);
-                background: rgba(255, 255, 255, 0.05);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-                color: var(--text);
-                text-decoration: none;
-                transition:
-                    transform 160ms ease,
-                    border-color 220ms ease,
-                    box-shadow 220ms ease,
-                    background 220ms ease;
-                position: relative;
-                overflow: hidden;
-            }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
 
-            html[data-theme="light"] .icon-btn {
-                background: rgba(0, 0, 0, 0.03);
-                box-shadow: 0 10px 24px rgba(17, 8, 42, 0.1);
-            }
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 0 80px;
+        position: relative;
+      }
 
-            .icon-btn::before {
-                content: "";
-                position: absolute;
-                inset: -40%;
-                background:
-                    radial-gradient(circle at 30% 30%, rgba(255, 79, 216, 0.35), transparent 55%),
-                    radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.3), transparent 55%);
-                opacity: 0.22;
-                transform: translateZ(0);
-                transition: opacity 220ms ease;
-                pointer-events: none;
-            }
+      .hero-content {
+        max-width: 800px;
+      }
 
-            .icon-btn:hover {
-                transform: translateY(-1px);
-                border-color: color-mix(in srgb, var(--hairline), rgba(54, 215, 255, 0.45) 40%);
-                box-shadow:
-                    0 16px 42px rgba(0, 0, 0, 0.26),
-                    0 0 0 1px rgba(255, 255, 255, 0.06);
-                background: rgba(255, 255, 255, 0.07);
-            }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        animation: fadeInUp 0.8s ease 0.2s both;
+      }
 
-            html[data-theme="light"] .icon-btn:hover {
-                background: rgba(0, 0, 0, 0.04);
-                box-shadow:
-                    0 16px 38px rgba(17, 8, 42, 0.14),
-                    0 0 0 1px rgba(0, 0, 0, 0.04);
-            }
+      .hero-badge .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--success);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+      }
 
-            .icon-btn:hover::before {
-                opacity: 0.34;
-            }
-            .icon-btn:active {
-                transform: translateY(0px) scale(0.98);
-            }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.2);
+        }
+      }
 
-            .icon-btn:focus-visible {
-                outline: 3px solid color-mix(in srgb, var(--focus), transparent 20%);
-                outline-offset: 2px;
-            }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.8s ease 0.4s both;
+      }
 
-            .icon {
-                width: 22px;
-                height: 22px;
-                display: block;
-                opacity: 0.95;
-            }
+      .hero h1 .gradient-text {
+        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-            .icon path,
-            .icon circle {
-                fill: none;
-                stroke: currentColor;
-                stroke-width: 1.8;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-            }
+      .hero-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--text-secondary);
+        font-weight: 400;
+        margin-bottom: 16px;
+        animation: fadeInUp 0.8s ease 0.6s both;
+      }
 
-            main {
-                margin-top: 6px;
-            }
+      .hero-location {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+        animation: fadeInUp 0.8s ease 0.7s both;
+      }
 
-            .about {
-                margin: 0;
-                color: var(--text);
-                font-size: clamp(15px, 1.6vw, 17px);
-                line-height: 1.65;
-                max-width: 70ch;
-            }
+      .hero-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        animation: fadeInUp 0.8s ease 0.8s both;
+      }
 
-            .about strong {
-                font-weight: 650;
-                color: color-mix(in srgb, var(--text), rgba(255, 79, 216, 0.35) 22%);
-            }
+      .contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
 
-            footer {
-                margin-top: 22px;
-                padding-top: 16px;
-                border-top: 1px solid color-mix(in srgb, var(--hairline), transparent 10%);
-                display: flex;
-                justify-content: space-between;
-                gap: 14px;
-                flex-wrap: wrap;
-                color: var(--muted);
-                font-size: 13px;
-            }
+      .contact-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
 
-            .fine {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                flex-wrap: wrap;
-            }
+      .contact-btn.primary {
+        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+        border-color: transparent;
+        color: white;
+      }
 
-            .dot {
-                width: 8px;
-                height: 8px;
-                border-radius: 999px;
-                background:
-                    radial-gradient(
-                        circle at 30% 30%,
-                        rgba(255, 255, 255, 0.9),
-                        rgba(255, 255, 255, 0.2) 35%,
-                        transparent 62%
-                    ),
-                    linear-gradient(135deg, var(--violet), var(--pink));
-                box-shadow:
-                    0 0 18px rgba(255, 79, 216, 0.22),
-                    0 0 22px rgba(139, 92, 246, 0.18);
-                border: 1px solid rgba(255, 255, 255, 0.18);
-            }
+      .contact-btn.primary:hover {
+        box-shadow: 0 8px 30px var(--accent-glow);
+      }
 
-            @media (max-width: 520px) {
-                header {
-                    grid-template-columns: 1fr;
-                }
-                .contacts {
-                    justify-content: start;
-                }
-            }
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s ease-in-out infinite;
+      }
 
-            @media (prefers-reduced-motion: reduce) {
-                .card__fx,
-                .icon-btn {
-                    transition: none;
-                }
-            }
-        </style>
-    </head>
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(10px);
+        }
+      }
 
-    <body>
-        <canvas id="bg" aria-hidden="true"></canvas>
+      /* Section styling */
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
 
-        <div class="page">
-            <div class="card-wrap" id="wrap">
-                <section class="card" id="card" aria-label="Персональная визитка">
-                    <div class="card__fx" id="cardFx" aria-hidden="true"></div>
+      .section-header {
+        margin-bottom: 60px;
+      }
 
-                    <div class="card__inner">
-                        <header>
-                            <div class="hero">
-                                <h1>Дмитрий Алешин</h1>
-                                <div class="role">Senior Frontend разработчик</div>
-                            </div>
+      .section-label {
+        display: inline-block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        color: var(--accent-light);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+      }
 
-                            <nav class="contacts" aria-label="Контакты">
-                                <a
-                                    class="icon-btn"
-                                    href="https://t.me/dim0oo0n"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Написать в Telegram"
-                                    title="Telegram"
-                                >
-                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path
-                                            d="M21.8 4.6L3.4 11.7c-.9.35-.86 1.63.07 1.92l4.7 1.47 1.8 5.6c.28.86 1.38.99 1.84.22l2.6-4.3 4.9 3.6c.67.49 1.62.12 1.79-.7l2.9-13.6c.2-.9-.66-1.62-1.2-1.38Z"
-                                        />
-                                        <path d="M8.1 15.1l12.8-9.2" />
-                                        <path d="M8.1 15.1l5.1 4.1" />
-                                    </svg>
-                                </a>
+      .section-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
 
-                                <a
-                                    class="icon-btn"
-                                    href="https://www.linkedin.com/in/meow-muser"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Открыть LinkedIn"
-                                    title="LinkedIn"
-                                >
-                                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M6.4 10.2v10.3" />
-                                        <path d="M6.4 6.2v.2" />
-                                        <path d="M10.2 20.5V10.2" />
-                                        <path d="M10.2 13.8c.7-2.5 2.4-3.7 4.6-3.7 2.7 0 4.4 1.8 4.4 5.2v5.2" />
-                                        <path d="M19.2 20.5v-6.2" />
-                                    </svg>
-                                </a>
-                            </nav>
-                        </header>
+      .section-desc {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+      }
 
-                        <main>
-                            <p class="about">
-                                Делаю интерфейсы, которые ощущаются быстрыми и аккуратными — от компонентов до целых
-                                продуктов. В работе опираюсь на <strong>React</strong> и <strong>Vue</strong>, люблю
-                                чистую типизацию в <strong>TypeScript</strong>. Ценю предсказуемость, доступность и
-                                детали: анимации — мягкие, UX — честный, код — поддерживаемый.
-                            </p>
-                        </main>
+      /* About section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
 
-                        <footer>
-                            <div class="fine">
-                                <span class="dot" aria-hidden="true"></span>
-                                <span id="year"></span>
-                            </div>
-                            <div>Дмитрий Алешин</div>
-                        </footer>
-                    </div>
-                </section>
-            </div>
+      .about-text {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      /* Skills section */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .skill-category {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px;
+        transition: all 0.3s ease;
+      }
+
+      .skill-category:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 40px var(--accent-glow);
+      }
+
+      .skill-category h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .skill-category h3 .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        padding: 6px 14px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+      }
+
+      .skill-tag:hover {
+        border-color: var(--accent-light);
+        color: var(--text-primary);
+        background: var(--accent-glow);
+      }
+
+      /* Experience timeline */
+      .timeline {
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, var(--gradient-1), var(--gradient-2), transparent);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 60px;
+        padding-bottom: 60px;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 11px;
+        top: 4px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--bg-primary);
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      .timeline-content {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        border-color: var(--border-hover);
+        transform: translateX(4px);
+      }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .timeline-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .timeline-company {
+        color: var(--accent-light);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .timeline-period {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        background: var(--bg-secondary);
+        border-radius: 100px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .timeline-desc {
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
+
+      .timeline-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .stack-tag {
+        padding: 4px 12px;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 6px;
+        font-size: 0.8rem;
+        color: var(--accent-light);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .achievements {
+        list-style: none;
+      }
+
+      .achievements li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 10px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .achievements li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent-light);
+        font-weight: 600;
+      }
+
+      /* Education */
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .edu-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px;
+        transition: all 0.3s ease;
+      }
+
+      .edu-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+      }
+
+      .edu-degree {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .edu-school {
+        color: var(--accent-light);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .edu-field {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+
+      .edu-year {
+        display: inline-block;
+        padding: 4px 12px;
+        background: var(--bg-secondary);
+        border-radius: 6px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-text {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-light);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .timeline::before {
+          left: 12px;
+        }
+
+        .timeline-item {
+          padding-left: 40px;
+        }
+
+        .timeline-dot {
+          left: 3px;
+          width: 16px;
+          height: 16px;
+        }
+
+        .timeline-header {
+          flex-direction: column;
+        }
+
+        section {
+          padding: 60px 0;
+        }
+
+        .hero {
+          padding: 100px 0 60px;
+        }
+      }
+
+      /* Code-like decoration */
+      .code-decoration {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--border-hover);
+      }
+    </style>
+    <base target="_blank" />
+  </head>
+  <body>
+    <div class="bg-mesh"></div>
+    <div class="grid-overlay"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <nav id="navbar">
+      <div class="container">
+        <div class="nav-logo">&lt;DA /&gt;</div>
+        <ul class="nav-links">
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#skills">Навыки</a></li>
+          <li><a href="#experience">Опыт</a></li>
+          <li><a href="#education">Образование</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Открыт к предложениям
         </div>
+        <h1>
+          Алешин<br />
+          <span class="gradient-text">Дмитрий</span>
+        </h1>
+        <p class="hero-subtitle">Senior Frontend Developer & Team Lead</p>
+        <p class="hero-location">📍 Москва, Россия · Удалённо · Без командировок</p>
+        <div class="hero-contacts">
+          <a href="mailto:dmitriy_aleshin_00.work@mail.ru" class="contact-btn primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Написать
+          </a>
+          <a href="https://t.me/dim0oo0n" target="_blank" rel="me noopener noreferrer" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
+              <path d="M128 0C57.307 0 0 57.307 0 128s57.307 128 128 128 128-57.307 128-128S198.693 0 128 0" fill="#40b3e0" />
+              <path
+                d="M190.283 73.63 167.42 188.899s-3.197 7.994-11.99 4.157l-52.758-40.448-19.184-9.272-32.294-10.872s-4.956-1.758-5.436-5.595 5.596-5.915 5.596-5.915l128.376-50.36s10.552-4.636 10.552 3.038"
+                fill="#fff"
+              />
+              <path
+                d="M98.618 187.604s-1.54-.145-3.46-6.22c-1.917-6.075-11.67-38.05-11.67-38.05l77.538-49.24s4.477-2.718 4.317 0c0 0 .799.48-1.6 2.718-2.397 2.239-60.91 54.836-60.91 54.836"
+                fill="#d2e5f1"
+              />
+              <path d="m122.902 168.115-20.868 19.026s-1.632 1.238-3.416.462l3.996-35.34" fill="#b5cfe4" />
+            </svg>
+            Telegram
+          </a>
+          <a href="https://github.com/KoTuK2306" target="_blank" rel="me noopener noreferrer" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a href="tel:+79806323459" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            Позвонить
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+      </div>
+    </section>
 
-        <script>
-            (function () {
-                const root = document.documentElement;
+    <section id="about">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// 01</span>
+          <h2 class="section-title">Обо мне</h2>
+          <p class="section-desc">Senior frontend-разработчик с более чем 6 годами опыта в JavaScript/TypeScript и экосистеме React.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text animate-on-scroll">
+            <p>
+              Специализируюсь на архитектуре масштабируемых enterprise-SPA, производительности, UI-платформах и стандартизации frontend-разработки. Имею опыт
+              лидерства командой до 7 frontend-разработчиков.
+            </p>
+            <p>
+              Работал в крупных продуктовых командах fintech и enterprise-сегмента. Системно подхожу к качеству кода, производительности и процессам. Провожу
+              технические собеседования, менторю junior-разработчиков и выстраиваю CI/CD пайплайны.
+            </p>
+            <p>Готов к удалённой работе. ИП / самозанятость — по запросу.</p>
+          </div>
+          <div class="stats-grid animate-on-scroll">
+            <div class="stat-card">
+              <div class="stat-number">6+</div>
+              <div class="stat-label">лет опыта</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">7</div>
+              <div class="stat-label">разработчиков в команде</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">50%</div>
+              <div class="stat-label">уменьшение бандла</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">95%+</div>
+              <div class="stat-label">типизация TypeScript</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
-                function applyTheme() {
-                    const light = mq && mq.matches;
-                    root.dataset.theme = light ? "light" : "dark";
-                }
-                applyTheme();
-                if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", applyTheme);
-                else if (mq && typeof mq.addListener === "function") mq.addListener(applyTheme);
+    <section id="skills" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// 02</span>
+          <h2 class="section-title">Ключевые навыки</h2>
+          <p class="section-desc">Стек технологий, которыми владею на уровне эксперта и использую в ежедневной работе.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">⚛</span> Frontend Core</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React 18</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Redux Toolkit</span>
+              <span class="skill-tag">React Query</span>
+              <span class="skill-tag">Next.js (SSR)</span>
+              <span class="skill-tag">MUI</span>
+              <span class="skill-tag">Vite</span>
+              <span class="skill-tag">Webpack</span>
+            </div>
+          </div>
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">🔌</span> Realtime & API</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">WebSocket</span>
+              <span class="skill-tag">SSE</span>
+              <span class="skill-tag">REST API</span>
+              <span class="skill-tag">OpenAPI / Swagger</span>
+              <span class="skill-tag">Axios</span>
+            </div>
+          </div>
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">🧪</span> Качество</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Jest</span>
+              <span class="skill-tag">React Testing Library</span>
+              <span class="skill-tag">ESLint</span>
+              <span class="skill-tag">Prettier</span>
+              <span class="skill-tag">Husky</span>
+              <span class="skill-tag">Sentry</span>
+            </div>
+          </div>
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">🚀</span> DevOps & Процессы</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">GitLab CI/CD</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Scrum</span>
+              <span class="skill-tag">GitFlow</span>
+              <span class="skill-tag">Code Review</span>
+              <span class="skill-tag">Менторинг</span>
+            </div>
+          </div>
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">🎨</span> UI & Инструменты</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">SCSS / SASS</span>
+              <span class="skill-tag">BEM</span>
+              <span class="skill-tag">Storybook</span>
+              <span class="skill-tag">i18n (react-i18next)</span>
+            </div>
+          </div>
+          <div class="skill-category animate-on-scroll">
+            <h3><span class="icon">🌍</span> Языки</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Русский — родной</span>
+              <span class="skill-tag">Английский — B1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                const y = document.getElementById("year");
-                if (y) y.textContent = new Date().getFullYear() + " ©";
+    <section id="experience">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// 03</span>
+          <h2 class="section-title">Опыт работы</h2>
+          <p class="section-desc">5 лет 10 месяцев в продуктовых компаниях с фокусом на enterprise и fintech.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-title">Senior Frontend Developer / Team Lead</div>
+                  <div class="timeline-company">ВТБ Регистратор, Москва</div>
+                </div>
+                <span class="timeline-period">янв 2024 — наст. время · 1 г. 11 мес.</span>
+              </div>
+              <p class="timeline-desc">Платформа «Кворум / Кворум ID» — fintech, сотни тысяч пользователей. Кросс-функциональная Scrum-команда ~18 человек.</p>
+              <div class="timeline-stack">
+                <span class="stack-tag">React 18</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Redux Toolkit</span>
+                <span class="stack-tag">Next.js</span>
+                <span class="stack-tag">Vite</span>
+                <span class="stack-tag">WebSocket</span>
+                <span class="stack-tag">OpenAPI</span>
+              </div>
+              <ul class="achievements">
+                <li>Спроектировал слоистую FSD-архитектуру SPA, стандартизировал паттерны Redux Toolkit и асинхронной логики</li>
+                <li>Внедрил SSR на Next.js для публичных разделов — улучшил SEO и сократил TTFB/FCP</li>
+                <li>Оптимизировал initial bundle на 40–50% через code splitting, dynamic imports, tree shaking</li>
+                <li>Спроектировал слой WebSocket-коммуникации для онлайн-голосований с reconnect и очередью сообщений</li>
+                <li>Разработал UI Kit на MUI с TypeScript-типизацией, темизацией и документацией в Storybook</li>
+                <li>Достиг 95%+ строгой типизации TypeScript, внедрил Sentry для мониторинга runtime-ошибок</li>
+                <li>Руководил frontend-направлением: декомпозиция, code review, менторинг 7 разработчиков, 5+ закрытых вакансий</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-title">Middle → Senior Frontend Developer</div>
+                  <div class="timeline-company">ООО «Цифровые Контрольные Технологии»</div>
+                </div>
+                <span class="timeline-period">фев 2020 — дек 2023 · 3 г. 11 мес.</span>
+              </div>
+              <p class="timeline-desc">B2B enterprise-решение для автоматизации крупных предприятий. Масштаб внедрения ~10 000–50 000 пользователей.</p>
+              <div class="timeline-stack">
+                <span class="stack-tag">React 18</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Redux Toolkit</span>
+                <span class="stack-tag">MUI</span>
+                <span class="stack-tag">Webpack</span>
+                <span class="stack-tag">WebSocket</span>
+                <span class="stack-tag">i18n</span>
+              </div>
+              <ul class="achievements">
+                <li>Спроектировал масштабируемую архитектуру frontend-приложения с нуля</li>
+                <li>Создал компонентную библиотеку на Material UI с темизацией и брендированием</li>
+                <li>Внедрил SSR для части маршрутов — улучшил показатели первой загрузки</li>
+                <li>Сократил размер бандла на 50% (1.8 MB → 900 KB) и время загрузки на 30%</li>
+                <li>Стабилизировал WebSocket-коннект: reconnect, heartbeat, backoff</li>
+                <li>Выстроил систему ESLint, Prettier, Husky hooks, pre-commit и pre-push проверки</li>
+                <li>Внедрил code review-чек-листы и CODEOWNERS, сократил время отладки багов на 40%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                const reduceMotionMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
-                const prefersReducedMotion = () => !!(reduceMotionMq && reduceMotionMq.matches);
+    <section id="education" style="background: var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label">// 04</span>
+          <h2 class="section-title">Образование</h2>
+          <p class="section-desc">Тверской государственный университет — математическое и компьютерное образование.</p>
+        </div>
+        <div class="education-grid">
+          <div class="edu-card animate-on-scroll">
+            <div class="edu-degree">Магистр</div>
+            <div class="edu-school">Тверской государственный университет</div>
+            <div class="edu-field">Математика и компьютерное моделирование</div>
+            <span class="edu-year">2025</span>
+          </div>
+          <div class="edu-card animate-on-scroll">
+            <div class="edu-degree">Бакалавр</div>
+            <div class="edu-school">Тверской государственный университет</div>
+            <div class="edu-field">Математика и компьютерные науки</div>
+            <span class="edu-year">2023</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                const wrap = document.getElementById("wrap");
-                const card = document.getElementById("card");
-                const cardFx = document.getElementById("cardFx");
+    <section id="contacts">
+      <div class="container">
+        <div class="section-header animate-on-scroll" style="text-align: center">
+          <span class="section-label">// 05</span>
+          <h2 class="section-title">Связаться со мной</h2>
+          <p class="section-desc">Готов обсудить интересные проекты и предложения. Открыт к удалённой работе.</p>
+        </div>
+        <div class="hero-contacts" style="justify-content: center">
+          <a href="mailto:dmitriy_aleshin_00.work@mail.ru" class="contact-btn primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            dmitriy_aleshin_00.work@mail.ru
+          </a>
+          <a href="https://t.me/dim0oo0n" target="_blank" rel="me noopener noreferrer" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
+              <path d="M128 0C57.307 0 0 57.307 0 128s57.307 128 128 128 128-57.307 128-128S198.693 0 128 0" fill="#40b3e0" />
+              <path
+                d="M190.283 73.63 167.42 188.899s-3.197 7.994-11.99 4.157l-52.758-40.448-19.184-9.272-32.294-10.872s-4.956-1.758-5.436-5.595 5.596-5.915 5.596-5.915l128.376-50.36s10.552-4.636 10.552 3.038"
+                fill="#fff"
+              />
+              <path
+                d="M98.618 187.604s-1.54-.145-3.46-6.22c-1.917-6.075-11.67-38.05-11.67-38.05l77.538-49.24s4.477-2.718 4.317 0c0 0 .799.48-1.6 2.718-2.397 2.239-60.91 54.836-60.91 54.836"
+                fill="#d2e5f1"
+              />
+              <path d="m122.902 168.115-20.868 19.026s-1.632 1.238-3.416.462l3.996-35.34" fill="#b5cfe4" />
+            </svg>
+            Telegram
+          </a>
+          <a href="https://github.com/KoTuK2306" target="_blank" rel="me noopener noreferrer" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/meow-muser" target="_blank" rel="me noopener noreferrer" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="tel:+79806323459" class="contact-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            +7 (980) 632-34-59
+          </a>
+        </div>
+      </div>
+    </section>
 
-                let parallaxEnabled = false;
-                function canParallax() {
-                    const finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
-                    const hover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
-                    return finePointer && hover && !prefersReducedMotion();
-                }
+    <footer>
+      <div class="container">
+        <p class="footer-text">© 2025 Алешин Дмитрий · Senior Frontend Developer</p>
+        <div class="footer-links">
+          <a href="https://github.com/KoTuK2306" target="_blank" rel="me noopener noreferrer">GitHub</a>
+          <a href="https://t.me/dim0oo0n" target="_blank" rel="me noopener noreferrer">Telegram</a>
+          <a href="https://linkedin.com/in/meow-muser" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+          <a href="mailto:dmitriy_aleshin_00.work@mail.ru">Email</a>
+        </div>
+      </div>
+    </footer>
 
-                function setParallaxEnabled(on) {
-                    parallaxEnabled = on;
-                    if (cardFx) {
-                        cardFx.style.transform = on ? "translateZ(0)" : "";
-                        cardFx.style.setProperty("--shine-x", "35%");
-                        cardFx.style.setProperty("--shine-y", "25%");
-                    }
-                }
-                setParallaxEnabled(canParallax());
-                if (reduceMotionMq && typeof reduceMotionMq.addEventListener === "function") {
-                    reduceMotionMq.addEventListener("change", () => setParallaxEnabled(canParallax()));
-                }
+    <script>
+      // Cursor glow effect
+      const cursorGlow = document.getElementById("cursorGlow");
+      let mouseX = 0,
+        mouseY = 0;
+      let glowX = 0,
+        glowY = 0;
 
-                let rafTilt = 0;
-                function onMove(e) {
-                    if (!parallaxEnabled || !cardFx || !card) return;
-                    if (rafTilt) return;
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-                    rafTilt = requestAnimationFrame(() => {
-                        rafTilt = 0;
+      function animateGlow() {
+        glowX += (mouseX - glowX) * 0.1;
+        glowY += (mouseY - glowY) * 0.1;
+        cursorGlow.style.left = glowX + "px";
+        cursorGlow.style.top = glowY + "px";
+        requestAnimationFrame(animateGlow);
+      }
+      animateGlow();
 
-                        const r = card.getBoundingClientRect();
-                        const cx = r.left + r.width / 2;
-                        const cy = r.top + r.height / 2;
+      // Hide cursor glow on touch devices
+      if ("ontouchstart" in window) {
+        cursorGlow.style.display = "none";
+      }
 
-                        const dx = (e.clientX - cx) / (r.width / 2);
-                        const dy = (e.clientY - cy) / (r.height / 2);
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
 
-                        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-                        const nx = clamp(dx, -1, 1);
-                        const ny = clamp(dy, -1, 1);
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
 
-                        const rotY = nx * 7;
-                        const rotX = -ny * 6;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
 
-                        cardFx.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
 
-                        cardFx.style.setProperty("--shine-x", `${(nx * 18 + 50).toFixed(2)}%`);
-                        cardFx.style.setProperty("--shine-y", `${(ny * 16 + 35).toFixed(2)}%`);
-                    });
-                }
-
-                function onLeave() {
-                    if (!cardFx) return;
-                    cardFx.style.transform = `rotateX(0deg) rotateY(0deg)`;
-                    cardFx.style.setProperty("--shine-x", "35%");
-                    cardFx.style.setProperty("--shine-y", "25%");
-                }
-
-                if (wrap) {
-                    wrap.addEventListener("mousemove", onMove, { passive: true });
-                    wrap.addEventListener("mouseleave", onLeave, { passive: true });
-                }
-
-                const canvas = document.getElementById("bg");
-                const ctx = canvas && canvas.getContext ? canvas.getContext("2d", { alpha: true }) : null;
-                if (!canvas || !ctx) return;
-
-                let dpr = Math.min(2, window.devicePixelRatio || 1);
-                let w = 0,
-                    h = 0;
-
-                let running = true;
-                let lastT = performance.now();
-
-                function qualityFactor() {
-                    const area = Math.max(1, window.innerWidth * window.innerHeight);
-                    if (prefersReducedMotion()) return 0.25;
-                    if (area > 1400 * 900) return 0.75;
-                    return 1.0;
-                }
-
-                let blobs = [];
-                let particles = [];
-                let gridPhase = 0;
-
-                function resize() {
-                    dpr = Math.min(2, window.devicePixelRatio || 1);
-                    w = Math.floor(window.innerWidth * dpr);
-                    h = Math.floor(window.innerHeight * dpr);
-                    canvas.width = w;
-                    canvas.height = h;
-                    canvas.style.width = window.innerWidth + "px";
-                    canvas.style.height = window.innerHeight + "px";
-                    initScene();
-                }
-
-                function rand(a, b) {
-                    return a + Math.random() * (b - a);
-                }
-
-                function initScene() {
-                    const q = qualityFactor();
-
-                    const blobCount = prefersReducedMotion() ? 2 : 4;
-                    blobs = Array.from({ length: blobCount }, (_, i) => {
-                        const base = Math.min(w, h);
-                        const r = rand(base * 0.18, base * 0.32) * (0.95 + i * 0.04);
-                        const speed = rand(0.05, 0.12) * q;
-                        const hue = i % 2 === 0 ? 272 : 318;
-                        const alpha = prefersReducedMotion() ? 0.18 : 0.22;
-                        return {
-                            x: rand(0.2 * w, 0.8 * w),
-                            y: rand(0.2 * h, 0.8 * h),
-                            r,
-                            a: rand(0, Math.PI * 2),
-                            speed,
-                            hue,
-                            alpha,
-                            wobble: rand(0.6, 1.3),
-                            driftX: rand(-0.08, 0.08) * q,
-                            driftY: rand(-0.06, 0.06) * q,
-                        };
-                    });
-
-                    const particleCount = Math.floor((prefersReducedMotion() ? 26 : 52) * q);
-                    particles = Array.from({ length: particleCount }, () => {
-                        const s = rand(0.7, 1.6) * dpr;
-                        return {
-                            x: Math.random() * w,
-                            y: Math.random() * h,
-                            vx: rand(-0.08, 0.08) * dpr * q,
-                            vy: rand(-0.06, 0.06) * dpr * q,
-                            s,
-                            o: rand(0.22, 0.55),
-                        };
-                    });
-                }
-
-                function drawBackgroundGradient() {
-                    const isLight = root.dataset.theme === "light";
-                    const g = ctx.createLinearGradient(0, 0, 0, h);
-                    if (!isLight) {
-                        g.addColorStop(0, "rgba(8, 9, 20, 0.92)");
-                        g.addColorStop(1, "rgba(9, 10, 24, 0.92)");
-                    } else {
-                        g.addColorStop(0, "rgba(248, 248, 255, 0.90)");
-                        g.addColorStop(1, "rgba(255, 255, 255, 0.92)");
-                    }
-                    ctx.fillStyle = g;
-                    ctx.fillRect(0, 0, w, h);
-                }
-
-                function drawBlobs(dt) {
-                    const isLight = root.dataset.theme === "light";
-                    ctx.save();
-                    ctx.globalCompositeOperation = "lighter";
-
-                    for (const b of blobs) {
-                        b.a += b.speed * dt;
-                        const ox = Math.cos(b.a) * (b.r * 0.18) * b.wobble;
-                        const oy = Math.sin(b.a * 0.9) * (b.r * 0.14) * b.wobble;
-
-                        b.x += b.driftX * dt * 30;
-                        b.y += b.driftY * dt * 30;
-
-                        if (b.x < -b.r) b.x = w + b.r;
-                        if (b.x > w + b.r) b.x = -b.r;
-                        if (b.y < -b.r) b.y = h + b.r;
-                        if (b.y > h + b.r) b.y = -b.r;
-
-                        const x = b.x + ox;
-                        const y = b.y + oy;
-
-                        const grad = ctx.createRadialGradient(x, y, b.r * 0.1, x, y, b.r);
-                        const a0 = isLight ? b.alpha * 0.75 : b.alpha;
-                        grad.addColorStop(0, `hsla(${b.hue}, 95%, ${isLight ? 60 : 62}%, ${a0})`);
-                        grad.addColorStop(0.55, `hsla(${b.hue}, 95%, ${isLight ? 62 : 60}%, ${a0 * 0.35})`);
-                        grad.addColorStop(1, "rgba(0,0,0,0)");
-
-                        ctx.fillStyle = grad;
-                        ctx.beginPath();
-                        ctx.arc(x, y, b.r, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-
-                    ctx.restore();
-                }
-
-                function drawGridAndWaves(dt) {
-                    const isLight = root.dataset.theme === "light";
-                    gridPhase += dt * (prefersReducedMotion() ? 0.003 : 0.006);
-
-                    const spacing = Math.round(64 * dpr);
-                    const lineAlpha = isLight ? 0.055 : 0.06;
-
-                    ctx.save();
-                    ctx.globalCompositeOperation = "source-over";
-                    ctx.lineWidth = 1 * dpr;
-                    ctx.strokeStyle = isLight ? `rgba(20, 18, 40, ${lineAlpha})` : `rgba(255, 255, 255, ${lineAlpha})`;
-
-                    for (let x = 0; x <= w; x += spacing) {
-                        const wob = Math.sin(gridPhase + x / (220 * dpr)) * (6 * dpr);
-                        ctx.beginPath();
-                        ctx.moveTo(x + wob, 0);
-                        ctx.lineTo(x + wob, h);
-                        ctx.stroke();
-                    }
-
-                    for (let y = 0; y <= h; y += spacing) {
-                        const wob = Math.sin(gridPhase * 1.1 + y / (240 * dpr)) * (6 * dpr);
-                        ctx.beginPath();
-                        ctx.moveTo(0, y + wob);
-                        ctx.lineTo(w, y + wob);
-                        ctx.stroke();
-                    }
-
-                    ctx.restore();
-                }
-
-                function drawParticles(dt) {
-                    const isLight = root.dataset.theme === "light";
-                    ctx.save();
-                    ctx.globalCompositeOperation = "screen";
-
-                    for (const p of particles) {
-                        p.x += p.vx * dt * 30;
-                        p.y += p.vy * dt * 30;
-
-                        if (p.x < -20) p.x = w + 20;
-                        if (p.x > w + 20) p.x = -20;
-                        if (p.y < -20) p.y = h + 20;
-                        if (p.y > h + 20) p.y = -20;
-
-                        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 14 * dpr);
-                        const a = p.o * (prefersReducedMotion() ? 0.55 : 1.0);
-                        const c1 = isLight ? `rgba(139, 92, 246, ${0.2 * a})` : `rgba(255, 79, 216, ${0.22 * a})`;
-                        const c2 = isLight ? `rgba(255, 79, 216, ${0.14 * a})` : `rgba(54, 215, 255, ${0.12 * a})`;
-                        g.addColorStop(0, c1);
-                        g.addColorStop(0.5, c2);
-                        g.addColorStop(1, "rgba(0,0,0,0)");
-
-                        ctx.fillStyle = g;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, 14 * dpr, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        ctx.fillStyle = isLight ? `rgba(20, 18, 40, ${0.1 * a})` : `rgba(255,255,255, ${0.12 * a})`;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-
-                    ctx.restore();
-                }
-
-                function render(now) {
-                    if (!running) return;
-
-                    const dtRaw = Math.min(34, now - lastT);
-                    lastT = now;
-
-                    const timeScale = prefersReducedMotion() ? 0.35 : 1.0;
-                    const dt = dtRaw * timeScale;
-
-                    drawBackgroundGradient();
-                    drawGridAndWaves(dt);
-                    drawBlobs(dt);
-                    drawParticles(dt);
-
-                    ctx.save();
-                    const isLight = root.dataset.theme === "light";
-                    const vg = ctx.createRadialGradient(
-                        w * 0.5,
-                        h * 0.35,
-                        Math.min(w, h) * 0.1,
-                        w * 0.5,
-                        h * 0.5,
-                        Math.min(w, h) * 0.68,
-                    );
-                    if (!isLight) {
-                        vg.addColorStop(0, "rgba(0,0,0,0)");
-                        vg.addColorStop(1, "rgba(0,0,0,0.38)");
-                    } else {
-                        vg.addColorStop(0, "rgba(255,255,255,0)");
-                        vg.addColorStop(1, "rgba(255,255,255,0.40)");
-                    }
-                    ctx.fillStyle = vg;
-                    ctx.fillRect(0, 0, w, h);
-                    ctx.restore();
-
-                    requestAnimationFrame(render);
-                }
-
-                function start() {
-                    running = true;
-                    lastT = performance.now();
-                    requestAnimationFrame(render);
-                }
-                function stop() {
-                    running = false;
-                }
-
-                document.addEventListener(
-                    "visibilitychange",
-                    () => {
-                        if (document.hidden) stop();
-                        else start();
-                    },
-                    { passive: true },
-                );
-
-                let resizeRaf = 0;
-                window.addEventListener(
-                    "resize",
-                    () => {
-                        if (resizeRaf) cancelAnimationFrame(resizeRaf);
-                        resizeRaf = requestAnimationFrame(resize);
-                    },
-                    { passive: true },
-                );
-
-                function onThemeUpdate() {
-                    initScene();
-                }
-                if (mq && typeof mq.addEventListener === "function") mq.addEventListener("change", onThemeUpdate);
-                else if (mq && typeof mq.addListener === "function") mq.addListener(onThemeUpdate);
-
-                resize();
-                start();
-            })();
-        </script>
-    </body>
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
