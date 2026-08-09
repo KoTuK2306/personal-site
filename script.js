@@ -133,12 +133,27 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
 
+// ========== SMOOTH ANCHOR SCROLL + URL UPDATE ==========
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    const target = document.querySelector(href);
+    if (!target) return;
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.pushState(null, "", href);
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
+});
+
+// Scroll to anchor on page load (if URL has hash)
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    }
+  }
 });
 
 // Dynamic dates
@@ -215,6 +230,9 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveLink(entry.target.id);
+          if (window.location.hash !== "#" + entry.target.id) {
+            history.replaceState(null, "", "#" + entry.target.id);
+          }
         }
       });
     },
