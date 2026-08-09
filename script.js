@@ -136,6 +136,8 @@ document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe
 // ========== SMOOTH ANCHOR SCROLL + URL UPDATE ==========
 let isAutoScrolling = false;
 let autoScrollTimer = null;
+let initialHashLock = false;
+let initialHashLockTimer = null;
 
 function startAutoScroll(duration) {
   isAutoScrolling = true;
@@ -152,24 +154,24 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (!target) return;
     e.preventDefault();
     history.pushState(null, "", href);
-    startAutoScroll(800);
+    startAutoScroll(1000);
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
-// Scroll to anchor on page load (if URL has hash)
+// При загрузке с якорем — доверяемся браузерному скроллу,
+// но блокируем observer, чтобы он не перезаписал hash
 window.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target) {
-      startAutoScroll(200);
-      target.scrollIntoView({ behavior: "auto", block: "start" });
-    }
+  if (window.location.hash) {
+    initialHashLock = true;
+    clearTimeout(initialHashLockTimer);
+    initialHashLockTimer = setTimeout(() => {
+      initialHashLock = false;
+    }, 1500);
   }
 });
 
-// Cancel auto-scroll flag on any user-initiated scroll
+// Сброс флагов по пользовательским событиям
 ["wheel", "touchmove", "keydown", "mousedown"].forEach((evt) => {
   window.addEventListener(
     evt,
@@ -253,7 +255,7 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
 
   const spyObserver = new IntersectionObserver(
     (entries) => {
-      if (isAutoScrolling) return;
+      if (isAutoScrolling || initialHashLock) return;
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveLink(entry.target.id);
