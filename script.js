@@ -134,6 +134,17 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
 
 // ========== SMOOTH ANCHOR SCROLL + URL UPDATE ==========
+let isAutoScrolling = false;
+let autoScrollTimer = null;
+
+function startAutoScroll(duration) {
+  isAutoScrolling = true;
+  clearTimeout(autoScrollTimer);
+  autoScrollTimer = setTimeout(() => {
+    isAutoScrolling = false;
+  }, duration);
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
@@ -141,6 +152,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (!target) return;
     e.preventDefault();
     history.pushState(null, "", href);
+    startAutoScroll(800);
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
@@ -151,9 +163,22 @@ window.addEventListener("DOMContentLoaded", () => {
   if (hash) {
     const target = document.querySelector(hash);
     if (target) {
-      setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      startAutoScroll(200);
+      target.scrollIntoView({ behavior: "auto", block: "start" });
     }
   }
+});
+
+// Cancel auto-scroll flag on any user-initiated scroll
+["wheel", "touchmove", "keydown", "mousedown"].forEach((evt) => {
+  window.addEventListener(
+    evt,
+    () => {
+      isAutoScrolling = false;
+      clearTimeout(autoScrollTimer);
+    },
+    { passive: true },
+  );
 });
 
 // Dynamic dates
@@ -220,13 +245,15 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
   const sections = document.querySelectorAll("section[id]");
 
   function setActiveLink(id) {
-    navLinks.forEach((link) => {
+    const allNavLinks = document.querySelectorAll('.nav-links a[href^="#"], .nav-sidebar-links a[href^="#"]');
+    allNavLinks.forEach((link) => {
       link.classList.toggle("active", link.getAttribute("href") === "#" + id);
     });
   }
 
   const spyObserver = new IntersectionObserver(
     (entries) => {
+      if (isAutoScrolling) return;
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveLink(entry.target.id);
@@ -250,5 +277,48 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
         link.classList.add("active");
       }
     });
+  });
+})();
+
+// ========== MOBILE SIDEBAR ==========
+(function () {
+  const toggle = document.getElementById("navToggle");
+  const sidebar = document.getElementById("navSidebar");
+  const overlay = document.getElementById("navOverlay");
+  const closeBtn = document.getElementById("navSidebarClose");
+  const sidebarLinks = document.querySelectorAll(".nav-sidebar-links a");
+
+  function openSidebar() {
+    toggle.classList.add("active");
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+    document.body.classList.add("sidebar-open");
+    toggle.setAttribute("aria-expanded", "true");
+    sidebar.setAttribute("aria-hidden", "false");
+  }
+
+  function closeSidebar() {
+    toggle.classList.remove("active");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("sidebar-open");
+    toggle.setAttribute("aria-expanded", "false");
+    sidebar.setAttribute("aria-hidden", "true");
+  }
+
+  toggle.addEventListener("click", openSidebar);
+  closeBtn.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeSidebar();
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && sidebar.classList.contains("active")) {
+      closeSidebar();
+    }
   });
 })();
