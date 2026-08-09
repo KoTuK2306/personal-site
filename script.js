@@ -198,3 +198,39 @@ document.querySelectorAll(".timeline-period").forEach((el) => {
 });
 
 document.getElementById("footerYear").textContent = new Date().getFullYear();
+
+// ========== SCROLL SPY / ACTIVE NAV ==========
+(function () {
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = document.querySelectorAll("section[id]");
+
+  function setActiveLink(id) {
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+    });
+  }
+
+  const spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    },
+    { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" },
+  );
+
+  sections.forEach((section) => spyObserver.observe(section));
+
+  // При клике на ссылку сразу подсвечиваем её (пока скроллится)
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        navLinks.forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
+      }
+    });
+  });
+})();
