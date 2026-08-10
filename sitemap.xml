@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dim0n-c0de.site/</loc>
-    <lastmod>2026-08-06T18:12:05+00:00</lastmod>
+    <lastmod>2026-08-10T13:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://dim0n-c0de.site/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dim0n-c0de.site/"/>
-    <image:image>
-      <image:loc>https://dim0n-c0de.site/og-image.svg</image:loc>
-      <image:title>Алешин Дмитрий — Senior Frontend Developer & Team Lead</image:title>
-      <image:caption>Превью резюме Senior Frontend Developer</image:caption>
-    </image:image>
   </url>
 </urlset>
