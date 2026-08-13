@@ -231,6 +231,7 @@
     </script>
     <base target="_blank" />
     <base target="_blank" />
+    <base target="_blank" />
   </head>
   <body>
     <canvas id="matrixCanvas"></canvas>
@@ -371,6 +372,10 @@
           <a href="tel:+79806323459" class="contact-btn">
             <i class="fa-solid fa-phone"></i>
             Позвонить
+          </a>
+          <a href="files/dmitriy_aleshin_frontend_cv.pdf" download class="contact-btn">
+            <i class="fa-solid fa-file-pdf"></i>
+            Скачать CV
           </a>
         </div>
       </div>
@@ -648,7 +653,7 @@
             <div class="timeline-content">
               <div class="timeline-header">
                 <div>
-                  <div class="timeline-title">Senior Frontend Developer</div>
+                  <div class="timeline-title">Frontend Developer</div>
                   <div class="timeline-company">ВТБ Регистратор, Москва</div>
                 </div>
                 <span class="timeline-period" data-start="2024-01-01">янв 2024 — наст. время</span>
@@ -668,21 +673,34 @@
                 <span class="stack-tag">PrimeVue</span>
               </div>
               <ul class="achievements">
+                <li>Спроектировал и внедрил UI Kit на базе Nuxt UI / PrimeVue с полной TypeScript-типизацией</li>
                 <li>
-                  Оптимизировал initial load на Vue 3 / Nuxt 4: route-level code splitting, dynamic imports, lazy loading — сократил initial bundle на 41–48%
+                  Создал библиотеку composables для фильтров, пагинации, форм, таблиц и API-состояний — унифицировал подход к построению экранов, сократил
+                  дублирование бизнес-логики и TTM новых фич за счёт переиспользования готовых блоков
                 </li>
                 <li>
-                  Настроил прогрессивную загрузку изображений и вынос тяжёлых ресурсов из критического пути, уменьшив визуальные задержки на нагруженных экранах
+                  Оптимизировал initial load: вынес тяжёлые библиотеки (PrimeVue, charting) в peer dependencies, настроил route-level code splitting и dynamic
+                  imports — сократил entry bundle с ~1.4 МБ до ~750 КБ (gzip)
                 </li>
-                <li>Провёл аудит Lighthouse / Web Vitals ключевых страниц: устранил избыточные зависимости, тяжёлые чанки и блокирующие ресурсы</li>
-                <li>Разработал и стандартизировал UI Kit на Nuxt UI / PrimeVue с TypeScript-типизацией и едиными паттернами взаимодействия</li>
-                <li>Создал библиотеку composables для фильтров, пагинации, форм, таблиц и API-состояний — ускорил разработку новых экранов на ~23%</li>
-                <li>Стандартизировал state management на Pinia и единый подход к формам на VeeValidate + Zod с типизированными схемами</li>
-                <li>Повысил долю TypeScript-типизации до 95%+: strict typing, type guards, общие типы для API-моделей</li>
-                <li>Внедрил unit-тестирование на Jest / Vitest и запуск тестов в GitLab CI pipeline — регрессии выявляются до деплоя</li>
-                <li>Унифицировал GitLab CI/CD pipeline для нескольких frontend-приложений: линтинг, сборка, тесты, деплой</li>
-                <li>Лидирую командой из 7 frontend-разработчиков: декомпозиция, code review, менторинг, согласование с backend / QA / design</li>
-                <li>Ввёл единые правила code review и критерии готовности задач — снизилось число возвратов с QA, ускорился онбординг</li>
+                <li>
+                  Настроил прогрессивную загрузку изображений и вынес тяжёлые ресурсы из критического пути, снизив визуальные задержки на нагруженных экранах
+                </li>
+                <li>Провёл аудит производительности ключевых страниц: устранил избыточные зависимости и блокирующие ресурсы</li>
+                <li>
+                  Перевёл кодовую базу на strict TypeScript: внедрил общие типы для API-моделей, type guards и shared interfaces — устранил runtime-ошибки,
+                  связанные с некорректными данными
+                </li>
+                <li>
+                  Покрыл unit-тестами критичные модули (composables, утилиты валидации, API-клиент) на Jest с запуском в GitLab CI pipeline — регрессии
+                  выявляются до деплоя
+                </li>
+                <li>Унифицировал CI/CD pipeline для нескольких frontend-приложений: линтинг, сборка, тесты, деплой</li>
+                <li>Провожу code review и декомпозицию сложных задач для команды из 7 разработчиков</li>
+                <li>Ввёл единые критерии готовности задач и чек-листы review — снизил число возвратов с QA и ускорил онбординг новых членов команды</li>
+                <li>
+                  Регулярно провожу 1-to-1 с junior/middle разработчиками, помогая закрывать технические пробелы (разбор паттернов Composition API, отладка
+                  сложных багов)
+                </li>
               </ul>
             </div>
           </div>
@@ -710,16 +728,19 @@
                 <span class="stack-tag">Webpack</span>
               </div>
               <ul class="achievements">
+                <li>Спроектировал масштабируемую архитектуру с разделением на функциональные модули, общие UI-компоненты и инфраструктурный слой</li>
                 <li>
-                  Спроектировал масштабируемую архитектуру frontend-приложения на React + TypeScript с разделением на функциональные модули, общие UI-компоненты
-                  и инфраструктурный слой
+                  Создал компонентную библиотеку на Material UI с темизацией и строгой типизацией props — стандартизировал UI и сократил дублирование при сборке
+                  новых экранов
                 </li>
-                <li>Создал компонентную библиотеку на Material UI с темизацией и строгой типизацией props — ускорил разработку типовых экранов на 20%</li>
-                <li>Внедрил state management на Redux Toolkit и архитектуру стилей SCSS / SASS + BEM с миксинами и общими переменными</li>
-                <li>Сократил bundle с 1.8 MB до 900 KB и уменьшил время загрузки на 30% за счёт анализа зависимостей и dynamic imports</li>
-                <li>Снизил лишние перерендеры через React.memo, useMemo и оптимизацию props в тяжёлых таблицах и формах</li>
-                <li>Выстроил систему качества кода (ESLint, Prettier, Husky) — сократил время отладки и исправления багов на 40%</li>
-                <li>Реализовал 8+ коммерческих веб-проектов: от оценки и декомпозиции до поставки, включая адаптивную вёрстку и интеграции с API</li>
+                <li>Внедрил state management на Redux Toolkit и архитектуру стилей SCSS + BEM с миксинами и общими переменными</li>
+                <li>Сократил production bundle с ~1.8 МБ до ~900 КБ за счёт анализа зависимостей, tree-shaking и dynamic imports</li>
+                <li>Снизил лишние перерендеры в тяжёлых таблицах и формах через React.memo, useMemo и оптимизацию props</li>
+                <li>
+                  Выстроил систему качества кода (ESLint, Prettier, Husky) — снизил количество багов, доходящих до QA, и ускорил ревью за счёт
+                  автоформатирования и единых правил
+                </li>
+                <li>Реализовал 8+ коммерческих веб-проектов: от оценки и декомпозиции до поставки, включая адаптивную вёрстку и интеграции с backend API</li>
               </ul>
             </div>
           </div>
@@ -811,6 +832,10 @@
           <a href="tel:+79806323459" class="contact-btn">
             <i class="fa-solid fa-phone"></i>
             +7 (980) 632-34-59
+          </a>
+          <a href="files/dmitriy_aleshin_frontend_cv.pdf" download class="contact-btn">
+            <i class="fa-solid fa-file-pdf"></i>
+            Скачать CV
           </a>
         </div>
       </div>
