@@ -138,6 +138,7 @@ let isAutoScrolling = false;
 let autoScrollTimer = null;
 let initialHashLock = false;
 let initialHashLockTimer = null;
+let isPdfModalOpen = window.location.hash === "#cv";
 
 function startAutoScroll(duration) {
   isAutoScrolling = true;
@@ -255,6 +256,7 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
 
   const spyObserver = new IntersectionObserver(
     (entries) => {
+      if (window.location.hash === "#cv" || isPdfModalOpen) return;
       if (isAutoScrolling || initialHashLock) return;
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -277,6 +279,7 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
       if (href && href.startsWith("#")) {
         navLinks.forEach((l) => l.classList.remove("active"));
         link.classList.add("active");
+        if (isPdfModalOpen) closePdfModal();
       }
     });
   });
@@ -324,3 +327,54 @@ document.getElementById("footerYear").textContent = new Date().getFullYear();
     }
   });
 })();
+
+// ========== PDF MODAL ==========
+function openPdfModal() {
+  isPdfModalOpen = true;
+  const modal = document.getElementById("pdfModal");
+  if (!modal) return;
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  if (window.location.hash !== "#cv") {
+    history.pushState({ pdfModal: true }, "", "#cv");
+  }
+}
+
+function closePdfModal() {
+  isPdfModalOpen = false;
+  const modal = document.getElementById("pdfModal");
+  if (!modal) return;
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  if (window.location.hash === "#cv") {
+    if (history.state && history.state.pdfModal) {
+      history.back();
+    } else {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && isPdfModalOpen) {
+    closePdfModal();
+  }
+});
+
+window.addEventListener("popstate", () => {
+  if (window.location.hash === "#cv") {
+    openPdfModal();
+  } else if (isPdfModalOpen) {
+    closePdfModal();
+  }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.location.hash === "#cv") {
+    openPdfModal();
+  }
+});

@@ -261,6 +261,7 @@
       ><div><img src="https://mc.yandex.ru/watch/111730634" style="position: absolute; left: -9999px" alt="" /></div
     ></noscript>
     <!-- /Yandex.Metrika counter -->
+    <base target="_blank" />
   </head>
   <body>
     <canvas id="matrixCanvas"></canvas>
@@ -402,6 +403,10 @@
             <i class="fa-solid fa-phone"></i>
             Позвонить
           </a>
+          <button class="contact-btn" onclick="openPdfModal()" type="button">
+            <i class="fa-solid fa-eye"></i>
+            Посмотреть CV
+          </button>
           <a href="files/dmitriy_aleshin_frontend_cv.pdf" download class="contact-btn">
             <i class="fa-solid fa-file-pdf"></i>
             Скачать CV
@@ -862,6 +867,10 @@
             <i class="fa-solid fa-phone"></i>
             +7 (980) 632-34-59
           </a>
+          <button class="contact-btn" onclick="openPdfModal()" type="button">
+            <i class="fa-solid fa-eye"></i>
+            Посмотреть CV
+          </button>
           <a href="files/dmitriy_aleshin_frontend_cv.pdf" download class="contact-btn">
             <i class="fa-solid fa-file-pdf"></i>
             Скачать CV
@@ -883,5 +892,31 @@
     </footer>
 
     <script src="js/script.js"></script>
+
+    <!-- PDF Viewer Modal -->
+    <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+      <div class="pdf-modal-backdrop" onclick="closePdfModal()"></div>
+      <div class="pdf-modal-content" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+        <div class="pdf-modal-header">
+          <h3 id="pdfModalTitle">Резюме — Алешин Дмитрий</h3>
+          <button class="pdf-modal-close" onclick="closePdfModal()" aria-label="Закрыть просмотр PDF">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="pdf-modal-body">
+          <iframe src="files/dmitriy_aleshin_frontend_cv.pdf" title="Резюме PDF" loading="lazy"></iframe>
+        </div>
+        <div class="pdf-modal-footer">
+          <a href="files/dmitriy_aleshin_frontend_cv.pdf" download class="contact-btn">
+            <i class="fa-solid fa-download"></i>
+            Скачать PDF
+          </a>
+          <button class="contact-btn" onclick="closePdfModal()" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
