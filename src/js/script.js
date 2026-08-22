@@ -378,3 +378,6 @@ window.addEventListener("DOMContentLoaded", () => {
     openPdfModal();
   }
 });
+
+window.openPdfModal = openPdfModal;
+window.closePdfModal = closePdfModal;
